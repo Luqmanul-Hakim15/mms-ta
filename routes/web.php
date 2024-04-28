@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\AdminController;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,6 +18,5 @@ use Illuminate\Support\Facades\Route;
 //     return view('login');
 // });
 
-Route::get('/', function () {
-    return view('admin/addverifikator');
-});
+Route::get('incomingmail', [AdminController::class, 'incomingmail'])->name('admin.incomingmail');
+Route::resource('/', AdminController::class);
