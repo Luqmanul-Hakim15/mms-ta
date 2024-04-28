@@ -24,7 +24,7 @@
 <main class="flex">
 @include('layouts.sidebar')
 
-    <!-- main layout -->
+{{-- Section Main Start  --}}
     <div class="flex-auto px-6 pt-28">
 
         <div class="">
@@ -69,7 +69,7 @@
         </div>
 
     </div>
-    <!-- main layout end -->
+{{-- Section Main End  --}}
 </main>
 </section>
 

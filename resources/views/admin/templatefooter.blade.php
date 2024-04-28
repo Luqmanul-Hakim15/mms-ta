@@ -20,43 +20,11 @@
 <body>
 
 @include('layouts.navbar')
-{{-- SIDEBAR  --}}
-{{-- Section Sidebar Start  --}}
+
 <section class="flex relative">
 @include('layouts.sidebar')
 
-<main class="flex-1 relative"  x-data="{popOpenDelete:false}">
-    <!-- nav -->
-    <nav class="px-10 py-6  fixed top-0 left-0 right-0 bg-white z-50">
-        <div class="w-full flex justify-between">
-
-            <div class="flex-1">
-                <div class="flex gap-x-32 flex-1">
-                    <div class="logo text-center ">
-                        <h1 class="text-3xl text-black font-bold">Suratan</h1>
-                    </div>
-                    <form action="">
-                        <div class="bg-blue-50 w-[400px] px-4 flex items-center rounded-lg">
-                            <label for="searchbar"><i class="ph ph-magnifying-glass  text-darkGrey"
-                                    style="font-size: 28px;"></i></label>
-                            <input type="search" name="searchbar" id="searchbar"
-                                class="w-full bg-blue-50 placeholder:text-darkGrey ps-3 h-10 focus:outline-none rounded-e-xl"
-                                placeholder="Search">
-                        </div>
-                    </form>
-                </div>
-            </div>
-            <div class="flex items-center gap-3">
-                <div class="profile w-10 h-10 rounded-full bg-slate-400 bg-cover bg-center bg-no-repeat"
-                    style="background-image: url(https://source.unsplash.com/featured?profile);"></div>
-                <div class="text-lg font-semibold flex items-center gap-1">Admin <i
-                        class="fa fa-angle-down fa-xs"></i>
-                </div>
-            </div>
-        </div>
-    </nav>
-    <!-- nav end -->
-    <!-- main layout -->
+    {{-- Section Main Start  --}}
     <div  x-data="{footerAdd:false ,footerTem:null}">
         <div class="kategori py-28 min-h-screen">
             <div class="px-10">
@@ -298,9 +266,10 @@
             </div>
         </div>
     </div>
-    <!-- main layout end -->
+{{-- Section Main End  --}}
     
-    <div x-show="popOpenDelete"  >
+{{-- Section Pop Up Start  --}}
+    {{-- <div x-show="popOpenDelete"  >
         <div x-show="popOpenDelete"  x-transition>
            
             <div class="absolute top-0 left-0 right-0 bottom-0 inset-0 bg-gray-500 opacity-75"></div>
@@ -318,5 +287,6 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> --}}
+{{-- Section Pop Up End  --}}
 </main>

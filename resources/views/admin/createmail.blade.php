@@ -122,7 +122,7 @@
 
         </div>
     </div>
-    <!-- main layout end -->
+{{-- Section Main End  --}}
 </main>
 </section>
 

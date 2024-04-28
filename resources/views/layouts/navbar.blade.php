@@ -1,3 +1,4 @@
+{{-- Section Navbar Start  --}}
 <nav class="fixed top-0 left-0 right-0 bg-white z-50 shadow-md">
     <div class="w-full">
         <div class="flex relative justify-between">
@@ -14,3 +15,4 @@
         </div>
     </div>
 </nav>
+{{-- Section Navbar End  --}}

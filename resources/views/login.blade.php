@@ -18,7 +18,7 @@
     <script src="//unpkg.com/alpinejs" defer></script>
 </head>
 <body class="">
-    {{-- All Section Start --}}
+    {{-- Section Login Start --}}
     <section class="flex  w-full items-center h-screen">
         {{-- Left Section Start  --}}
         <div class=" flex-1 h-full bg-spotSubtle items-center justify-center flex">
@@ -64,7 +64,7 @@
         {{-- Right Section End  --}}
         
     </section>
-    {{-- All Section End --}}
+    {{--  Section Login End --}}
 
 
     {{-- javascript Start  --}}

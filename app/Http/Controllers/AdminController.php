@@ -23,27 +23,38 @@ class AdminController extends Controller
 
     public function incomingmails()
     {
+        //
         return view('admin.incomingmail');
     }
 
     public function templatecategories()
     {
         //
+        return view('admin.templatecategory');
     }
 
     public function templateheaders()
     {
         //
+        return view('admin.templateheader');
     }
 
     public function templatefooters()
     {
         //
+        return view('admin.templatefooter');
     }
 
-    public function verifikator()
+    public function verifikators()
     {
         //
+        return view('admin.verifikator');
+    }
+
+    public function addverifikators()
+    {
+        //
+        return view('admin.addverifikator');
     }
     /**
      * Show the form for creating a new resource.

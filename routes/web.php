@@ -18,5 +18,13 @@ use App\Http\Controllers\AdminController;
 //     return view('login');
 // });
 
-Route::get('incomingmail', [AdminController::class, 'incomingmail'])->name('admin.incomingmail');
 Route::resource('/', AdminController::class);
+Route::get('incomingmails', [AdminController::class, 'incomingmails'])->name('admin.incomingmail');
+Route::get('outgoingmails', [AdminController::class, 'outgoingmails'])->name('admin.outgoingmail');
+Route::get('templatecategories', [AdminController::class, 'templatecategories'])->name('admin.templatecategory');
+Route::get('templateheaders', [AdminController::class, 'templateheaders'])->name('admin.templateheader');
+Route::get('templatefooters', [AdminController::class, 'templatefooters'])->name('admin.templatefooter');
+Route::get('verifikators', [AdminController::class, 'verifikators'])->name('admin.verifikator');
+Route::get('addverifikators', [AdminController::class, 'addverifikators'])->name('admin.addverifikator');
+
+// Route::resource('superadmin', UserController::class, 'superadmin');

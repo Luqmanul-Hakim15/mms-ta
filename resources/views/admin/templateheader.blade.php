@@ -24,6 +24,7 @@
 <main class="flex relative">
 @include('layouts.sidebar')
 
+{{-- Section Main Start  --}}
 <div  x-data="{headerAdd:false , headerTem:null}">
     <div class="kategori py-28 ">
         <div class="px-10">
@@ -237,6 +238,7 @@
         </div>
     </div>
 </div>
+{{-- Section Main End  --}}
 
 {{-- Section Pop Up  --}}
 {{-- <div x-show="popOpenDelete"  >

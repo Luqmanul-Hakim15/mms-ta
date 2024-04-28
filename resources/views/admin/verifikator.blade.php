@@ -21,17 +21,17 @@
 
 @include('layouts.navbar')
 
+
+{{-- Section Main Start  --}}
 <main class="flex">
 @include('layouts.sidebar')
 
 <main class="flex-1 relative" x-data="{popOpenDelete : false}">
-
-    <!-- main layout -->
     <div class="verifikator py-32">
         <div class="px-10">
                 <div>
                     <div class="flex justify-end mb-4">
-                        <a href="tambah-verifikator.html" type="button"
+                        <a href="{{ route ('admin.addverifikator') }}" type="button"
                             class="bg-primary px-6 py-3 rounded-xl text-white font-medium text-sm">Tambah
                             Verifikator</a>
                     </div>
