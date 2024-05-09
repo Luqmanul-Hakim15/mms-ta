@@ -1,0 +1,7 @@
+.scroll-side::-webkit-scrollbar {
+    display: none;
+}
+.scroll-side {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
