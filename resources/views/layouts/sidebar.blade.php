@@ -1,8 +1,8 @@
 {{-- Section Sidebar Start  --}}
 <aside id="sidebar" class="flex w-[220px] h-screen">
-    <div class="fixed ">
+    <div class="fixed pt-24">
          {{-- Menu Admin  --}}
-         <div class="pt-28 h-screen shadow-xl px-3 w-full">
+         <div class="pt-24 mt-24 h-screen shadow-xl px-3 w-full">
              <div class="mb-6">
                  <a href="route {{ 'admin.index' }}"
                      class="block px-4 py-4 rounded-lg bg-primary font-semibold text-white hover:font-medium  hover:text-black    hover:bg-opacity-10">

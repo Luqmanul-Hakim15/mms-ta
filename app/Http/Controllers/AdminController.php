@@ -12,19 +12,30 @@ class AdminController extends Controller
     public function index()
     {
         //
-        return view('admin.templatefooter');
+        return view('admin.surat-masuk');
     }
 
+    public function addMail()
+    {
+        //
+        return view('admin.addincomingmail');
+    }
+    
+    public function createMail()
+    {
+        //
+        return view('admin.createmail');
+    }
+   
+    public function previewemail()
+    {
+        //
+        return view('admin.previewemail');
+    }
     public function outgoingmails()
     {
         //
         return view('admin.outgoingmail');
-    }
-
-    public function incomingmails()
-    {
-        //
-        return view('admin.incomingmail');
     }
 
     public function templatecategories()
