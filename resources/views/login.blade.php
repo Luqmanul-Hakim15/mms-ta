@@ -38,7 +38,8 @@
                 <p class="text-sm opacity-50 font-light ">Silahkan masuk untuk mengelola dan dokumentasi surat</p>
             </div>
             <div class="pt-10">
-                <form action="">
+                <form action="{{ route('login-post') }}" method="POST">
+                    @csrf
                     <div class="mb-5">
                         <label for="usname" class="font-semibold">Username</label>
                         <input type="text" name="usname" placeholder="Masukan username" id="usname" class="w-full px-4 py-3 focus:outline-spotSubtle border mt-2 border-line rounded-lg">
@@ -65,7 +66,6 @@
         
     </section>
     {{--  Section Login End --}}
-
 
     {{-- javascript Start  --}}
     {{-- <script src="../node_modules/jquery/dist/jquery.min.js"></script> --}}
