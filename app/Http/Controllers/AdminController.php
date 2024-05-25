@@ -67,6 +67,10 @@ class AdminController extends Controller
         //
         return view('admin.addverifikator');
     }
+    public function showRegistrationForm()
+    {
+        return view('register');
+    }
     /**
      * Show the form for creating a new resource.
      */

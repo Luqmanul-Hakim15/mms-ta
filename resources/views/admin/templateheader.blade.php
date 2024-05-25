@@ -203,35 +203,33 @@
                     <p class="text-sm opacity-50 w-3/4">tambah kop surat anda agar berfariasi ketika memakainya nanti</p>
                 </div>
                 <button @click="headerAdd=false"><i class="fas fa-xmark fa-xl"></i></button></div>
-            <form action="">
+            <form action="{{ route('header-post') }}" method="POST" enctype="multipart/form-data">
+                @csrf
                 <div class="mb-6">
                     <label for="nameHeader" class="pb-3">Nama Header</label>
-                    <input type="text" id="nameHeader"
-                        class="px-4 mt-3 rounded-lg py-2 border border-line w-full focus:outline-spotSubtle">
+                    <input type="text" name="name" id="nameHeader" class="px-4 mt-3 rounded-lg py-2 border border-line w-full focus:outline-spotSubtle">
                 </div>
                 <div class="mb-6 flex gap-2 items-center">
-                
                     <div>
-                        <input type="radio" name="ukuran" id="A4">
+                        <input type="radio" name="ukuran" id="A4" value="a4">
                         <label for="A4">3508 x 2480 px (A4)</label>
                     </div>
                     <div>
-                        <input type="radio" name="ukuran" id="legal">
+                        <input type="radio" name="ukuran" id="legal" value="legal">
                         <label for="legal">3400 x 5600 px (legal)</label>
                     </div>
                     <div>
-                        <input type="radio" name="ukuran" id="tabloid">
+                        <input type="radio" name="ukuran" id="tabloid" value="tabloid">
                         <label for="tabloid">3300 x 5100 px (Tabloid)</label>
                     </div>
                 </div>
                 <div class="mb-6 flex gap-2 items-center">
-                
                     <input type="checkbox" name="default" id="default">
                     <label for="default">Jadikan sebagai default header</label>
                 </div>
                 <div>
                     <label for="templateHeader">Template Header</label>
-                    <input type="file" name="" id="templateHeader">
+                    <input type="file" name="templateHeader" id="templateHeader">
                 </div>
                 <div class="flex justify-center mt-6"><button class="px-4 py-2 rounded-lg bg-primary w-full text-white font-semibold">Tambah Header</button></div>
             </form>

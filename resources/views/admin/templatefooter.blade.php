@@ -199,35 +199,33 @@
                         <p class="text-sm opacity-50 w-3/4">tambah Footer surat anda agar berfariasi ketika memakainya nanti</p>
                     </div>
                     <button @click="footerAdd=false"><i class="fas fa-xmark fa-xl"></i></button></div>
-                <form action="">
+                <form action="{{ route('footer-post') }}" method="POST" enctype="multipart/form-data">
+                    @csrf
                     <div class="mb-6">
                         <label for="nameFooter" class="pb-3">Nama Footer</label>
-                        <input type="text" id="nameFooter"
-                            class="px-4 mt-3 rounded-lg py-2 border border-line w-full focus:outline-spotSubtle">
+                        <input type="text" id="nameFooter" name="name" class="px-4 mt-3 rounded-lg py-2 border border-line w-full focus:outline-spotSubtle">
                     </div>
                     <div class="mb-6 flex gap-2 items-center">
-                    
                         <div>
-                            <input type="radio" name="ukuran" id="A4">
+                            <input type="radio" name="ukuran" id="A4" value="a4">
                             <label for="A4">3508 x 2480 px (A4)</label>
                         </div>
                         <div>
-                            <input type="radio" name="ukuran" id="legal">
+                            <input type="radio" name="ukuran" id="legal" value="legal">
                             <label for="legal">3400 x 5600 px (legal)</label>
                         </div>
                         <div>
-                            <input type="radio" name="ukuran" id="tabloid">
+                            <input type="radio" name="ukuran" id="tabloid" value="tabloid">
                             <label for="tabloid">3300 x 5100 px (Tabloid)</label>
                         </div>
                     </div>
                     <div class="mb-6 flex gap-2 items-center">
-            
                         <input type="checkbox" name="default" id="defaultFooter">
                         <label for="defaultFooter">Jadikan sebagai default footer</label>
                     </div>
                     <div>
                         <label for="templateFooter">Template Footer</label>
-                        <input type="file" name="" id="templateFooter">
+                        <input type="file" name="templateFooter" id="templateFooter">
                     </div>
                     <div class="flex justify-center mt-6"><button class="px-4 py-2 rounded-lg bg-primary w-full text-white font-semibold">Tambah Footer</button></div>
                 </form>

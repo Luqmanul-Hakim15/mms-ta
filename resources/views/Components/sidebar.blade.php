@@ -23,22 +23,22 @@
                     <i class="ph-fill ph-archive fa-lg me-3"></i>
                     Surat Masuk</a>
                 </li>
-                 <li><a href=""
+                 <li><a href="{{ route('admin.templatecategory')  }}"
                     class="w-full block p-3 rounded-lg  transition duration-200 delay-75 {{ Route::is('') ? 'bg-primary font-semibold text-white hover:font-medium hover:bg-primary hover:bg-opacity-5 hover:text-black' : 'hover:bg-primary hover:bg-opacity-5 hover:text-black bg-white font-medium' }} ">
                     <i class="ph-fill ph-paint-brush-broad fa-lg me-3"></i>
                     Template Kategori</a>
                  </li>
-                 <li><a href=""
+                 <li><a href="{{ route('admin.templateheader')  }}"
                     class="block p-3 rounded-lg   transition duration-200 delay-75 {{ Route::is('') ? 'bg-primary font-semibold text-white hover:font-medium hover:bg-primary hover:bg-opacity-5 hover:text-black' : 'hover:bg-primary hover:bg-opacity-5 hover:text-black bg-white font-medium' }}">
                     <i class="ph-fill ph-gradient fa-lg me-3"></i>
                     Template Header</a>
                  </li>
-                 <li><a href=""
+                 <li><a href="{{ route('admin.templatefooter')  }}"
                     class="block p-3 rounded-lg   transition duration-200 delay-75 {{ Route::is('') ? 'bg-primary font-semibold text-white hover:font-medium hover:bg-primary hover:bg-opacity-5 hover:text-black' : 'hover:bg-primary hover:bg-opacity-5 hover:text-black bg-white font-medium' }}">
                     <i class="ph-fill ph-paint-roller fa-lg me-3"></i>
                     Template Footer</a>
                  </li>
-                 <li><a href=""
+                 <li><a href="{{ route('admin.verifikator')  }}"
                     class="block p-3 rounded-lg   transition duration-200 delay-75 {{ Route::is('') ? 'bg-primary font-semibold text-white hover:font-medium hover:bg-primary hover:bg-opacity-5 hover:text-black' : 'hover:bg-primary hover:bg-opacity-5 hover:text-black bg-white font-medium' }}">
                     <i class="ph-bold ph-fingerprint-simple fa-lg me-3"></i>
                     Verifikator</a>
@@ -56,8 +56,8 @@
                       <a href="#" class="w-full block p-3  text-black rounded-lg font-medium hover:bg-primary hover:bg-opacity-5 hover:text-black"><i class="ph-fill ph-key fa-lg me-3"></i>Ganti Password</a>
                   </li>
                   <li>
-                    <a href="#" class="w-full block p-3  text-black rounded-lg font-medium hover:bg-primary hover:bg-opacity-5 hover:text-black"><i class="ph-fill ph-users-three fa-lg me-3"></i>Akun Users</a>
-                </li>
+                      <a href="{{ route('logout') }}" class="w-full block p-3  text-black rounded-lg font-medium hover:bg-primary hover:bg-opacity-5 hover:text-black"><i class="ph-bold ph-sign-out fa-lg me-3"></i>Log out</a>
+                  </li>
               </ul>
              </div>
          </div> 
