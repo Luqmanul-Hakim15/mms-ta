@@ -6,11 +6,7 @@
 <div class="kategori" x-data="{ showHover: null }">
 
     <div class=" rounded-xl drop-shadow-lg">
-        <div class="flex justify-end">
-            <a href="tambah-template.html"
-                class="block px-6 py-3 text-white font-medium bg-primary rounded-xl">Tambah
-                template</a>
-        </div>
+       
         <div class="text-sm font-medium text-center text-gray-500 border-b border-gray-200">
             <ul class="flex flex-wrap -mb-px">
                 <li class="mr-2">
