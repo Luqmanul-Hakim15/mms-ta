@@ -6,21 +6,21 @@
         <div class="px-6 py-6 ">
             <div class="flex items-center mb-20 w-[400px] mx-auto justify-center">
                 <div class="flex items-center text-white relative">
-                    <div
-                        class="rounded-full transition bg-primary duration-500 ease-in-out h-12 w-12 py-3 border-2 border-primary">
+                    <div 
+                        class="rounded-full transition duration-500 ease-in-out h-12 w-12 py-3 border-2 {{ Request::routeIs('premail') ? 'bg-none text-primary border-primary' : 'bg-none border-gray-300 text-gray-500'}}">
                         <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" fill="none" viewBox="0 0 24 24"
                             stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
                             class="feather feather-bookmark ">
                             <path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path>
                         </svg>
                     </div>
-                    <div class="absolute top-0 -ml-10 text-center mt-16 w-32 text-xs font-medium uppercase text-primary">
+                    <div class="absolute top-0 -ml-10 text-center mt-16 w-32 text-xs font-medium uppercase {{ Request::routeIs('premail') ? 'text-primary' : 'text-gray-500' }}">
                         Buat Surat</div>
                 </div>
-                <div class="flex-auto border-t-2 transition duration-500 ease-in-out border-gray-300"></div>
+                <div class="flex-auto border-t-2 transition duration-500 ease-in-out {{ Request::routeIs('premail') ? 'border-primary' : 'border-gray-300' }}"></div>
                 <div class="flex items-center text-primary relative">
                     <div
-                        class="rounded-full transition duration-500 ease-in-out h-12 w-12 py-3 border-2 border-gray-300 text-gray-500">
+                        class="rounded-full transition duration-500 ease-in-out h-12 w-12 py-3 border-2 {{ Request::routeIs('premail') ? 'bg-primary text-white border-primary' : 'bg-none border-gray-300 text-gray-500'}}">
                         <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" fill="none"
                             viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                             stroke-linejoin="round" class="feather feather-user-plus ">
@@ -30,7 +30,7 @@
                             <line x1="23" y1="11" x2="17" y2="11"></line>
                         </svg>
                     </div>
-                    <div class="absolute top-0 -ml-10 text-center mt-16 w-32 text-xs font-medium uppercase text-gray-500">
+                    <div class="absolute top-0 -ml-10 text-center mt-16 w-32 text-xs font-medium uppercase {{ Request::routeIs('premail') ? 'text-primary' : 'text-gray-500' }}">
                         Preview</div>
                 </div>
                 <div class="flex-auto border-t-2 transition duration-500 ease-in-out border-gray-300"></div>
@@ -52,9 +52,9 @@
 
             <x-alerts type="info">Silahkan pilih kategori surat terlebih dahulu agar form pengisian muncul</x-alerts>
 
-            <div class="bg-white">
+            <div class="bg-white pb-6 ">
                 <div class="pb-6 text-3xl font-semibold">Buat Surat</div>
-                <div class="w-full  drop-shadow-lg p-6 text-md">
+                <div class="w-full  drop-shadow-lg p-6 text-md h-screen border border-line overflow-auto scroll-side">
                     <table class="w-full leading-relaxed font-tahoma">
                         <tr>
                             <td>
@@ -392,7 +392,10 @@
                     </table>
                 </div>
             </div>
-
+<div class="flex gap-3 justify-end items-center">
+    <a href="{{ route('createmail') }}" class="px-5 py-2 border border-line text-gray-500 rounded-lg">Kembali</a>
+    <a href="{{ route('mailshare') }}" class="px-5 py-2 bg-primary text-white rounded-lg">Selanjutnya</a>
+</div>
         </div>
     </div>
 @stop

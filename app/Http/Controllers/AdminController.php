@@ -32,6 +32,11 @@ class AdminController extends Controller
         //
         return view('admin.previewemail');
     }
+    public function sharemail()
+    {
+        //
+        return view('admin.mailshare');
+    }
     public function outgoingmails()
     {
         //
@@ -70,6 +75,18 @@ class AdminController extends Controller
     public function showRegistrationForm()
     {
         return view('register');
+    }
+    public function profil() {
+        return view('admin.accountProfil');
+    }
+    public function change() {
+        return view('admin.changePasswords');
+    }
+    public function user() {
+        return view('admin.usersAccount');
+    }
+    public function adduser() {
+        return view('admin.addAccount');
     }
     /**
      * Show the form for creating a new resource.

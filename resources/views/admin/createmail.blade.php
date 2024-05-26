@@ -7,7 +7,7 @@
             <div class="flex items-center mb-20 w-[400px] mx-auto justify-center">
                 <div class="flex items-center text-white relative">
                     <div
-                        class="rounded-full transition bg-primary duration-500 ease-in-out h-12 w-12 py-3 border-2 border-primary">
+                        class="rounded-full transition duration-500 ease-in-out h-12 w-12 py-3 border-2 border-primary {{ Request::routeIs('createmail') ? 'bg-primary text-white' : 'bg-none border-gray-300 text-gray-500'}}">
                         <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" fill="none" viewBox="0 0 24 24"
                             stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
                             class="feather feather-bookmark ">

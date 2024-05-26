@@ -29,6 +29,7 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('/surat-keluar', [AdminController::class, 'outgoingmails'])->name('outmail');
     Route::get('/buat-surat', [AdminController::class, 'createmail'])->name('createmail');
     Route::get('/preview-surat', [AdminController::class, 'previewemail'])->name('premail');
+    Route::get('/mailshare', [AdminController::class, 'sharemail'])->name('mailshare');
     Route::get('/incomingmails', [AdminController::class, 'incomingmails'])->name('admin.incomingmail');
     Route::get('/outgoingmails', [AdminController::class, 'outgoingmails'])->name('admin.outgoingmail');
     Route::get('/templatecategories', [AdminController::class, 'templatecategories'])->name('admin.templatecategory');
@@ -39,6 +40,10 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('/verifikators', [AdminController::class, 'verifikators'])->name('admin.verifikator');
     Route::get('/addverifikators', [AdminController::class, 'addverifikators'])->name('admin.addverifikator');
     Route::post('/verificator-post', [TemplateController::class, 'verificatorTemplate'])->name('verificator-post');
+    Route::get('/account-profile', [AdminController::class, 'profil'])->name('admin.profil');
+    Route::get('/change-password', [AdminController::class, 'change'])->name('admin.change');
+    Route::get('/users', [AdminController::class, 'user'])->name('admin.users');
+    Route::get('/addusers', [AdminController::class, 'adduser'])->name('admin.adduser');
     Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
 
 });

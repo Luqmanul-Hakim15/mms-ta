@@ -1,40 +1,19 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Mail Management System PT. Javas Teknologi Integrator</title>
+@extends('layouts.app')
+
+@section('content')
     
-    {{-- VITE --}}
-    @vite('resources/css/app.css')
-    @vite('resources/js/app.js')
-
-    {{-- Resource --}}
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <script src="https://unpkg.com/@phosphor-icons/web"></script>
-    <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4="crossorigin="anonymous"></script>
-    <script src="//unpkg.com/alpinejs" defer></script>
-</head>
-<body>
-
-@include('layouts.navbar')
-
-<main class="flex relative">
-@include('layouts.sidebar')
-
 {{-- Section Main Start  --}}
-<div  x-data="{headerAdd:false , headerTem:null}">
-    <div class="kategori py-28 ">
-        <div class="px-10">
-            <div class="bg-white p-6 rounded-xl drop-shadow-lg">
+<x-header>Template Header</x-header>
+<div x-data="{ headerAdd: false, headerTem: null }">
+    <div class="kategori">
+        <div class="">
+            <div class="  rounded-xl drop-shadow-lg">
                 <div class="flex justify-end pb-6">
                     <button @click="headerAdd=true" type="button" class="block px-6 py-3 text-white font-medium bg-primary rounded-xl">Tambah
                         template</button>
                 </div>
                 <div class="grid grid-cols-2 gap-6  py-6">
-                    
+    
                     <a href="javascript:void(0)">
                         <div class="card-tempalte-1 text-center ">
                             <div class="relative" @mouseenter="headerTem='header1'" @mouseleave="headerTem=null">
@@ -43,7 +22,7 @@
                                 </div>
                                 <div x-show="headerTem ==='header1'"
                                     class="absolute flex items-center justify-center gap-4 top-0 left-0 right-0 bottom-0 inset-0 bg-gray-500 bg-opacity-75">
-                                  
+    
                                     <button
                                         class="bg-greenSpot rounded-full w-10 h-10 text-white flex justify-center items-center hover:bg-opacity-50 p-2"><i
                                             class="fa fa-pen"></i>
@@ -53,8 +32,8 @@
                                             class="fa fa-trash"></i>
                                         </button>
                                 </div>
-
-                                <img src="../assets/img/header.jpg" class=" " alt="">
+    
+                                <img src="{{ asset('images/header.jpg') }}" class=" " alt="">
                             </div>
                             <h3 class="py-3 font-semibold">Header 1</h3>
                         </div>
@@ -77,8 +56,8 @@
                                         class="bg-primary rounded-full w-10 h-10 text-white flex justify-center items-center p-2 hover:bg-opacity-50"><i
                                             class="fa fa-trash"></i></button>
                                 </div>
-
-                                <img src="../assets/img/header.jpg" class=" " alt="">
+    
+                                <img src="{{ asset('images/header.jpg') }}" class=" " alt="">
                             </div>
                             <h3 class="py-3 font-semibold">Header 2</h3>
                         </div>
@@ -101,8 +80,8 @@
                                         class="bg-primary rounded-full w-10 h-10 text-white flex justify-center items-center p-2 hover:bg-opacity-50"><i
                                             class="fa fa-trash"></i></button>
                                 </div>
-
-                                <img src="../assets/img/header.jpg" class=" " alt="">
+    
+                                <img src="{{ asset('images/header.jpg') }}" class=" " alt="">
                             </div>
                             <h3 class="py-3 font-semibold">Header 3</h3>
                         </div>
@@ -125,8 +104,8 @@
                                         class="bg-primary rounded-full w-10 h-10 text-white flex justify-center items-center p-2 hover:bg-opacity-50"><i
                                             class="fa fa-trash"></i></button>
                                 </div>
-
-                                <img src="../assets/img/header.jpg" class=" " alt="">
+    
+                                <img src="{{ asset('images/header.jpg') }}" class=" " alt="">
                             </div>
                             <h3 class="py-3 font-semibold">Header 4</h3>
                         </div>
@@ -149,8 +128,8 @@
                                         class="bg-primary rounded-full w-10 h-10 text-white flex justify-center items-center p-2 hover:bg-opacity-50"><i
                                             class="fa fa-trash"></i></button>
                                 </div>
-
-                                <img src="../assets/img/header.jpg" class=" " alt="">
+    
+                                <img src="{{ asset('images/header.jpg') }}" class=" " alt="">
                             </div>
                             <h3 class="py-3 font-semibold">Header 5</h3>
                         </div>
@@ -193,13 +172,13 @@
     </div>
     <div>
         <div x-show="headerAdd" x-transition>
-            <div class="absolute top-0 left-0 right-0 bottom-0 inset-0 bg-gray-500 opacity-75 min-h-screen"></div>
+            <div class="fixed  inset-0 bg-gray-500 opacity-75 z-10"></div>
         </div>
-        <div x-show="headerAdd" x-transition.origin.bottom.duration.500ms id="tambahKop"class="w-1/2 bg-white rounded-xl p-6 absolute top-[100px] left-[250px]  drop-shadow-md">
-        
+        <div x-show="headerAdd" x-transition.origin.bottom.duration.500ms id="tambahKop"class="w-1/2 bg-white rounded-xl p-6 absolute top-[100px] left-[350px] z-20 mx-auto drop-shadow-md">
+    
             <div class="flex justify-between items-start pb-6">
                 <div class="flex flex-col ">
-                    <h3 class="text-xl font-bold">Tambah Header</h3>
+                    <h3 class="text-xl font-bold text-primary">Tambah Header</h3>
                     <p class="text-sm opacity-50 w-3/4">tambah kop surat anda agar berfariasi ketika memakainya nanti</p>
                 </div>
                 <button @click="headerAdd=false"><i class="fas fa-xmark fa-xl"></i></button></div>
@@ -229,7 +208,7 @@
                 </div>
                 <div>
                     <label for="templateHeader">Template Header</label>
-                    <input type="file" name="templateHeader" id="templateHeader">
+                    <input type="file" name="templateHeader" class="dropHeader" id="templateHeader">
                 </div>
                 <div class="flex justify-center mt-6"><button class="px-4 py-2 rounded-lg bg-primary w-full text-white font-semibold">Tambah Header</button></div>
             </form>
@@ -260,5 +239,25 @@
 </div> --}}
 
 
-</main>    
-</body>
+@endsection
+
+@push('style')
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Dropify/0.2.2/css/dropify.min.css"
+        integrity="sha512-EZSUkJWTjzDlspOoPSpUFR0o0Xy7jdzW//6qhUkoZ9c4StFkVsp9fbbd0O06p9ELS3H486m4wmrCELjza4JEog=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+@endpush
+
+@push('script')
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Dropify/0.2.2/js/dropify.min.js"
+        integrity="sha512-8QFTrG0oeOiyWo/VM9Y8kgxdlCryqhIxVeRpWSezdRRAvarxVtwLnGroJgnVW9/XBRduxO/z1GblzPrMQoeuew=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script>
+        $(document).ready(function() {
+            $('.dropHeader').dropify({
+                tpl: {
+                    message: '<div class="dropify-message"><span class="file-icon" /> <p style="font-size: 24px;">Drag and drop a file here or click</p></div>',
+                }
+            })
+        })
+    </script>
+@endpush
