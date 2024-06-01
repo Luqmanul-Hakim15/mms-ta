@@ -19,6 +19,9 @@ use App\Http\Controllers\TemplateController;
 Route::get('/login', function () {
     return view('login');
 })->name('login');
+Route::get('/', function () {
+    return redirect('/login');
+});
 Route::get('register', [AdminController::class, 'showRegistrationForm'])->name('register');
 
 Route::post('/login-post', [AuthController::class, 'login'])->name('login-post');
