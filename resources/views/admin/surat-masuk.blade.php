@@ -25,19 +25,19 @@
             <thead class="bg-spotSubtle">
                 <tr>
                     <th class="border border-neutral-100 px-6 py-3 !w-[50px]">No</th>
+                    <th class="border border-neutral-100 px-6 py-3 text-left">Nama Surat</th>
                     <th class="border border-neutral-100 px-6 py-3 text-left">Tanggal</th>
                     <th class="border border-neutral-100 px-6 py-3 text-left">Penerima</th>
-                    <th class="border border-neutral-100 px-6 py-3 text-left">Jumlah Surat Masuk</th>
                     <th class="border border-neutral-100 px-6 py-3 text-left">Aksi</th>
                 </tr>
             </thead>
             <tbody>
                 @php
                     $surat_masuk = [
-                        ['12-12-2024', 'Rhonda Rheos', 125],
-                        ['13-12-2024', 'Rhondi Rheos', 100],
-                        ['14-12-2024', 'Rhondo Rheos', 225],
-                        ['15-12-2024', 'Rhondu Rheos', 25],
+                        ['Surat Undangan RSI Sultan Agung', '10-05-2024', 'Abdul Kholid'],
+                        ['Surat Perjanjian Kerjasama Piwulang Becik', '13-05-2024', 'Abdul Kholid'],
+                        ['Surat Permohonan Magang Universitas Amikom Yogyakarta', '17-05-2024', 'Andariska Pramudita'],
+                        ['Jawaban Surat Perjanjian Kerjasama Adaro', '25-05-2024', 'Didi Nur Kartiyono'],
                     ];
                 @endphp
                 @foreach ($surat_masuk as $key => $item)
@@ -45,7 +45,7 @@
                         <td class="border border-neutral-100 px-6 py-3 !w-[50px] text-center">{{ $key + 1 }}</td>
                         <td class="border border-neutral-100 px-6 py-3 text-left">{{ $item[0] }}</td>
                         <td class="border border-neutral-100 px-6 py-3 text-left">{{ $item[1] }}</td>
-                        <td class="border border-neutral-100 px-6 py-3 text-left">{{ $item[2] . ' Surat Masuk' }}</td>
+                        <td class="border border-neutral-100 px-6 py-3 text-left">{{ $item[2] }}</td>
                         <td class="border border-neutral-100 p-2 text-left flex justify-center items-center gap-3">
                             <a href="#" class="px-2 py-1 bg-green-500 text-white rounded">Unduh</a>
                             <a href="#" class="px-2 py-1 bg-blue-500 text-white rounded">Lihat</a>

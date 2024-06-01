@@ -4,6 +4,11 @@
     <x-header>Surat Masuk</x-header>
     <form action="">
         <div class="mb-6 relative">
+            <label for="Tanggal">Nama Surat</label>
+            <input type="text" name="Tanggal" id="tanggal"
+                class="w-full py-3 px-4 mt-3 border-line border rounded-md focus:outline-spotSubtle">
+        </div>
+        <div class="mb-6 relative">
             <label for="Tanggal">Tanggal Masuk</label>
             <input type="text" name="Tanggal" id="tanggal"
                 class="w-full tanggal pickadate py-3 px-4 mt-3 border-line border rounded-md focus:outline-spotSubtle">
