@@ -32,15 +32,33 @@
                 </tr>
             </thead>
             <tbody>
-                @php
+                <!-- @php
                     $surat_masuk = [
                         ['Surat Undangan RSI Sultan Agung', '10-05-2024', 'Abdul Kholid'],
                         ['Surat Perjanjian Kerjasama Piwulang Becik', '13-05-2024', 'Abdul Kholid'],
                         ['Surat Permohonan Magang Universitas Amikom Yogyakarta', '17-05-2024', 'Andariska Pramudita'],
                         ['Jawaban Surat Perjanjian Kerjasama Adaro', '25-05-2024', 'Didi Nur Kartiyono'],
                     ];
-                @endphp
-                @foreach ($surat_masuk as $key => $item)
+                @endphp -->
+                @foreach($data as $d)
+                <tr>
+                    <td>
+                        {{ $d->signature_code }}
+                    </td>
+                    <td>{{ $d->name }}</td>
+                    <td>{{ $d->position }}</td>
+                    <td class="flex gap-2 text-white justify-center items-center">
+                        <a href="" class="flex justify-center items-center bg-teal-500 p-2 rounded-lg w-8 h-8 text-center">
+                            <i class="fa-solid fa-pen fa-sm"></i>
+                        </a>
+                        <a href="javascript:(0)" @click="popOpenDelete=true" class="flex justify-center items-center bg-red-600 p-2 rounded-lg w-8 h-8 text-center">
+                            <i class="fa-solid fa-trash fa-sm"></i>
+                        </a>
+                    </td>
+                </tr>
+                @endforeach
+                <!-- @foreach ($surat_masuk as $key => $item)
+                
                     <tr>
                         <td class="border border-neutral-100 px-6 py-3 !w-[50px] text-center">{{ $key + 1 }}</td>
                         <td class="border border-neutral-100 px-6 py-3 text-left">{{ $item[0] }}</td>
@@ -55,7 +73,7 @@
                             </form>
                         </td>
                     </tr>
-                @endforeach
+                @endforeach -->
             </tbody>
         </table>
     </div>

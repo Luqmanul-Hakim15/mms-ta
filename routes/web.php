@@ -3,7 +3,10 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\AuthController;
-use App\Http\Controllers\TemplateController;
+use App\Http\Controllers\IncomingLetterController;
+use App\Http\Controllers\HeaderTemplateController;
+use App\Http\Controllers\FooterTemplateController;
+use App\Http\Controllers\VerificatorTemplateController;
 
 /*
 |--------------------------------------------------------------------------
@@ -34,15 +37,16 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('/preview-surat', [AdminController::class, 'previewemail'])->name('premail');
     Route::get('/mailshare', [AdminController::class, 'sharemail'])->name('mailshare');
     Route::get('/incomingmails', [AdminController::class, 'incomingmails'])->name('admin.incomingmail');
+    Route::post('/incomingmails-post', [IncomingLetterController::class, 'create'])->name('incomingmail-post');
     Route::get('/outgoingmails', [AdminController::class, 'outgoingmails'])->name('admin.outgoingmail');
     Route::get('/templatecategories', [AdminController::class, 'templatecategories'])->name('admin.templatecategory');
     Route::get('/templateheaders', [AdminController::class, 'templateheaders'])->name('admin.templateheader');
-    Route::post('/header-post', [TemplateController::class, 'headerTemplate'])->name('header-post');
+    Route::post('/header-post', [HeaderTemplateController::class, 'create'])->name('header-post');
     Route::get('/templatefooters', [AdminController::class, 'templatefooters'])->name('admin.templatefooter');
-    Route::post('/footer-post', [TemplateController::class, 'footerTemplate'])->name('footer-post');
+    Route::post('/footer-post', [FooterTemplateController::class, 'create'])->name('footer-post');
     Route::get('/verifikators', [AdminController::class, 'verifikators'])->name('admin.verifikator');
     Route::get('/addverifikators', [AdminController::class, 'addverifikators'])->name('admin.addverifikator');
-    Route::post('/verificator-post', [TemplateController::class, 'verificatorTemplate'])->name('verificator-post');
+    Route::post('/verificator-post', [VerificatorTemplateController::class, 'create'])->name('verificator-post');
     Route::get('/account-profile', [AdminController::class, 'profil'])->name('admin.profil');
     Route::get('/change-password', [AdminController::class, 'change'])->name('admin.change');
     Route::get('/users', [AdminController::class, 'user'])->name('admin.users');

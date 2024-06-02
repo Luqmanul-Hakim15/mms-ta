@@ -2,7 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\FooterTemplate;
+use App\Models\HeaderTemplate;
+use App\Models\Verificator;
 use Illuminate\Http\Request;
+use Illuminate\Support\Carbon;
 
 class AdminController extends Controller
 {
@@ -17,8 +21,10 @@ class AdminController extends Controller
 
     public function addMail()
     {
-        //
-        return view('admin.addincomingmail');
+        Carbon::setLocale('id');
+
+        $data['date'] = Carbon::now()->translatedFormat('l, d F Y');
+        return view('admin.addincomingmail', $data);
     }
     
     public function createMail()
@@ -51,20 +57,20 @@ class AdminController extends Controller
 
     public function templateheaders()
     {
-        //
-        return view('admin.templateheader');
+        $data = HeaderTemplate::orderBy('default', 'desc')->get();
+        return view('admin.templateheader', compact('data'));
     }
 
     public function templatefooters()
     {
-        //
-        return view('admin.templatefooter');
+        $data = FooterTemplate::orderBy('default', 'desc')->get();
+        return view('admin.templatefooter', compact('data'));
     }
 
     public function verifikators()
     {
-        //
-        return view('admin.verifikator');
+        $data = Verificator::all();
+        return view('admin.verifikator', compact('data'));
     }
 
     public function addverifikators()

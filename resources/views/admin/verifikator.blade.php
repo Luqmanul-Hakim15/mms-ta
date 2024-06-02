@@ -5,8 +5,7 @@
 <div class="verifikator">
     <div>
         <div class="flex justify-end mb-4">
-            <a href="{{ route ('admin.addverifikator') }}" type="button"
-                class="bg-primary px-6 py-3 rounded-xl text-white font-medium text-sm">Tambah
+            <a href="{{ route ('admin.addverifikator') }}" type="button" class="bg-primary px-6 py-3 rounded-xl text-white font-medium text-sm">Tambah
                 Verifikator</a>
         </div>
         <table class="w-full table-auto" id="style">
@@ -19,12 +18,13 @@
                 </tr>
             </thead>
             <tbody class="text-md">
+                @foreach($data as $d)
                 <tr>
                     <td>
-                        J01
+                        {{ $d->signature_code }}
                     </td>
-                    <td>Didi Nur Kartiyono</td>
-                    <td>Chief of Everything Officer</td>
+                    <td>{{ $d->name }}</td>
+                    <td>{{ $d->position }}</td>
                     <td class="flex gap-2 text-white justify-center items-center">
                         <a href="" class="flex justify-center items-center bg-teal-500 p-2 rounded-lg w-8 h-8 text-center">
                             <i class="fa-solid fa-pen fa-sm"></i>
@@ -34,7 +34,8 @@
                         </a>
                     </td>
                 </tr>
-                <tr>
+                @endforeach
+                <!-- <tr>
                     <td>
                         J02
                     </td>
@@ -93,46 +94,39 @@
                             <i class="fa-solid fa-trash fa-sm"></i>
                         </a>
                     </td>
-                </tr>
+                </tr> -->
             </tbody>
         </table>
     </div>
     <div class="flex justify-end py-6">
         <ul class="inline-flex -space-x-px text-sm">
             <li>
-                <a href="#"
-                    class="flex items-center justify-center px-3 h-8 ml-0 leading-tight text-gray-500 bg-white border border-gray-300 rounded-l-lg hover:bg-gray-100 hover:text-gray-700 "><i class="ph-bold ph-caret-left fa-lg"></i></a>
+                <a href="#" class="flex items-center justify-center px-3 h-8 ml-0 leading-tight text-gray-500 bg-white border border-gray-300 rounded-l-lg hover:bg-gray-100 hover:text-gray-700 "><i class="ph-bold ph-caret-left fa-lg"></i></a>
             </li>
             <li>
-                <a href="#"
-                    class="flex items-center justify-center px-3 h-8 leading-tight text-white bg-primary border border-gray-300 hover:bg-spotSubtle hover:text-gray-700 ">1</a>
+                <a href="#" class="flex items-center justify-center px-3 h-8 leading-tight text-white bg-primary border border-gray-300 hover:bg-spotSubtle hover:text-gray-700 ">1</a>
             </li>
             <li>
-                <a href="#"
-                    class="flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-spotSubtle hover:text-gray-700 ">2</a>
+                <a href="#" class="flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-spotSubtle hover:text-gray-700 ">2</a>
             </li>
             <li>
-                <a href="#" aria-current="page"
-                    class="flex items-center justify-center px-3 h-8 text-black border border-gray-300 bg-white hover:bg-spotSubtle  ">3</a>
+                <a href="#" aria-current="page" class="flex items-center justify-center px-3 h-8 text-black border border-gray-300 bg-white hover:bg-spotSubtle  ">3</a>
             </li>
             <li>
-                <a href="#"
-                    class="flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-spotSubtle hover:text-gray-700 ">4</a>
+                <a href="#" class="flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-spotSubtle hover:text-gray-700 ">4</a>
             </li>
             <li>
-                <a href="#"
-                    class="flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-spotSubtle hover:text-gray-700 ">...</a>
+                <a href="#" class="flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-spotSubtle hover:text-gray-700 ">...</a>
             </li>
             <li>
-                <a href="#"
-                    class="flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-primary bg-opacity-15 border-gray-300 rounded-r-lg hover:bg-spotSubtle hover:text-gray-700 "><i class="ph-bold ph-caret-right"></i></a>
+                <a href="#" class="flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-primary bg-opacity-15 border-gray-300 rounded-r-lg hover:bg-spotSubtle hover:text-gray-700 "><i class="ph-bold ph-caret-right"></i></a>
             </li>
         </ul>
     </div>
 
 </div>
 <!-- main layout end -->
-{{--  
+{{--
 <div x-show="popOpenDelete"  @click.away="popOpenDelete=false">
     <div x-show="popOpenDelete"  x-transition>
        
