@@ -11,7 +11,7 @@
             
         <div class="flex items-center px-6">
             <div class="flex relaive px-16"><i class="ph-bold ph-bell fa-lg"></i></i></div>
-            <div class="profile w-10 relative h-10 rounded-full bg-slate-400 bg-cover bg-center bg-no-repeat" style="background-image: url(https://source.unsplash.com/featured?profile);"></div>
+            <div class="profile w-10 relative h-10 rounded-full bg-slate-400 bg-cover bg-center bg-no-repeat" style="background-image: url('https://source.unsplash.com/featured?profile');"></div>
         </div>
     </div>
 </nav>
