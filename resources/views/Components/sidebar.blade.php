@@ -26,7 +26,7 @@
                 <li><a href="{{ route('admin.templatecategory') }}"
                         class="w-full block p-3 rounded-lg  transition duration-200 delay-75 {{ Request::routeIs('admin.templatecategory') ? 'bg-primary font-semibold text-white hover:font-medium hover:bg-primary hover:bg-opacity-5 hover:text-black' : 'hover:bg-primary hover:bg-opacity-5 hover:text-black bg-white font-medium' }} ">
                         <i class="ph-fill ph-paint-brush-broad fa-lg me-3"></i>
-                        Template Kategori</a>
+                        Kategori Surat</a>
                 </li>
                 <li><a href="{{ route('admin.templateheader') }}"
                         class="block p-3 rounded-lg   transition duration-200 delay-75 {{ Request::routeIs('admin.templateheader') ? 'bg-primary font-semibold text-white hover:font-medium hover:bg-primary hover:bg-opacity-5 hover:text-black' : 'hover:bg-primary hover:bg-opacity-5 hover:text-black bg-white font-medium' }}">

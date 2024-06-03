@@ -1,13 +1,13 @@
 @extends('layouts.app')
 
 @section('content')
-<x-header>Template Kategori</x-header>
+<x-header>Daftar Kategori Surat</x-header>
 <!-- Section Main Start -->
 <div class="kategori" x-data="{ showHover: null }">
 
     <div class=" rounded-xl drop-shadow-lg">
        
-        <div class="text-sm font-medium text-center text-gray-500 border-b border-gray-200">
+        {{-- <div class="text-sm font-medium text-center text-gray-500 border-b border-gray-200">
             <ul class="flex flex-wrap -mb-px">
                 <li class="mr-2">
                     <a href="#"
@@ -23,7 +23,7 @@
                         class="inline-block p-4 border-b-2 border-transparent rounded-t-lg hover:text-gray-600 hover:border-gray-300 dark:hover:text-gray-300">BAST</a>
                 </li>
             </ul>
-        </div>
+        </div> --}}
         <div class="grid grid-cols-4 gap-6  py-6">
             <a href="javascript:void(0)">
                 <div class="card-tempalte-1 text-center ">
@@ -41,9 +41,9 @@
                                     class="fa fa-trash"></i></button>
                         </div>
 
-                        <img src="{{ asset('images/spk.png') }}" class=" " alt="">
+                        <img src="{{ asset('images/magang.png') }}" class=" " alt="">
                     </div>
-                    <h3 class="py-3 font-semibold">SPK Perseorangan</h3>
+                    <h3 class="py-3 font-semibold">Surat Magang</h3>
                 </div>
             </a>
             <a href="javascript:void(0)">
@@ -62,9 +62,9 @@
                                     class="fa fa-trash"></i></button>
                         </div>
 
-                        <img src="{{ asset('images/spk.png') }}" class=" " alt="">
+                        <img src="{{ asset('images/Spk.png') }}" class=" " alt="">
                     </div>
-                    <h3 class="py-3 font-semibold">SPK BUMN</h3>
+                    <h3 class="py-3 font-semibold">Surat Perjanjian Kerjasama</h3>
                 </div>
             </a>
             <a href="javascript:void(0)">
@@ -83,12 +83,12 @@
                                     class="fa fa-trash"></i></button>
                         </div>
 
-                        <img src="{{ asset('images/spk.png') }}" class=" " alt="">
+                        <img src="{{ asset('images/Bast.png') }}" class=" " alt="">
                     </div>
-                    <h3 class="py-3 font-semibold">SPK Pemkab</h3>
+                    <h3 class="py-3 font-semibold">BAST</h3>
                 </div>
             </a>
-            <a href="javascript:void(0)">
+            {{-- <a href="javascript:void(0)">
                 <div class="card-tempalte-1 text-center ">
                     <div class="relative" @mouseenter="showHover='template4'" @mouseleave="showHover=null">
                         <div x-show="showHover === 'template4'" x-transition
@@ -108,8 +108,8 @@
                     </div>
                     <h3 class="py-3 font-semibold">SPK Karang Taruna</h3>
                 </div>
-            </a>
-            <a href="javascript:void(0)">
+            </a> --}}
+            {{-- <a href="javascript:void(0)">
                 <div class="card-tempalte-1 text-center ">
                     <div class="relative" @mouseenter="showHover='template5'" @mouseleave="showHover=null">
                         <div x-show="showHover === 'template5'" x-transition
@@ -195,11 +195,11 @@
                     </div>
                     <h3 class="py-3 font-semibold">SPK Karang Taruna</h3>
                 </div>
-            </a>
+            </a> --}}
 
         </div>
-        <div class="flex justify-end py-6">
-            <ul class="inline-flex -space-x-px text-sm">
+        {{-- <div class="flex justify-end py-6"> --}}
+            {{-- <ul class="inline-flex -space-x-px text-sm">
                 <li>
                     <a href="#"
                         class="flex items-center justify-center px-3 h-8 ml-0 leading-tight text-gray-500 bg-white border border-gray-300 rounded-l-lg hover:bg-gray-100 hover:text-gray-700 "><i
@@ -208,15 +208,15 @@
                 <li>
                     <a href="#"
                         class="flex items-center justify-center px-3 h-8 leading-tight text-white bg-primary border border-gray-300 hover:bg-spotSubtle hover:text-gray-700 ">1</a>
-                </li>
-                <li>
+                </li> --}}
+                {{-- <li>
                     <a href="#"
                         class="flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-spotSubtle hover:text-gray-700 ">2</a>
                 </li>
-                <li>
-                    <a href="#" aria-current="page"
-                        class="flex items-center justify-center px-3 h-8 text-black border border-gray-300 bg-white hover:bg-spotSubtle  ">3</a>
-                </li>
+                <li> --}}
+                    {{-- <a href="#" aria-current="page"
+                        class="flex items-center justify-center px-3 h-8 text-black border border-gray-300 bg-white hover:bg-spotSubtle  ">3</a> --}}
+                {{-- </li>
                 <li>
                     <a href="#"
                         class="flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-spotSubtle hover:text-gray-700 ">4</a>
@@ -224,14 +224,14 @@
                 <li>
                     <a href="#"
                         class="flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-spotSubtle hover:text-gray-700 ">...</a>
-                </li>
-                <li>
+                </li> --}}
+                {{-- <li>
                     <a href="#"
                         class="flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-primary bg-opacity-15 border-gray-300 rounded-r-lg hover:bg-spotSubtle hover:text-gray-700 "><i
                             class="ph-bold ph-caret-right"></i></a>
                 </li>
             </ul>
-        </div>
+        </div> --}}
     </div>
 
 </div>
