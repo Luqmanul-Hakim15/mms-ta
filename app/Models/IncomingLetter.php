@@ -5,11 +5,11 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Verificator extends Model
+class IncomingLetter extends Model
 {
     use HasFactory;
 
-    protected $table = 'verificators';
+    protected $table = 'incoming_letters';
 
     protected $casts =[
         'created_at' => 'datetime:Y-m-d H:m:s',
@@ -17,6 +17,6 @@ class Verificator extends Model
     ];
 
     protected $fillable = [
-        'signature_code', 'user_id', 'name', 'position', 'signature_image'
+        'user_id', 'tanggal', 'file_name', 'file'
     ];
 }
