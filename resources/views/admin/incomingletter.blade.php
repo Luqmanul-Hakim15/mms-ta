@@ -1,4 +1,4 @@
-@extends('layouts.app');
+@extends('layouts.app')
 
 @section('content')
     <x-header>Surat Masuk</x-header>
@@ -47,11 +47,11 @@
                         <td class="border border-neutral-100 px-6 py-3 text-left">{{ $item[1] }}</td>
                         <td class="border border-neutral-100 px-6 py-3 text-left">{{ $item[2] . ' Surat Masuk' }}</td>
                         <td class="border border-neutral-100 p-2 text-left flex justify-center items-center gap-3">
-                            <a href="#" class="px-2 py-1 bg-green-500 text-white rounded">Unduh</a>
-                            <a href="#" class="px-2 py-1 bg-blue-500 text-white rounded">Lihat</a>
+                            <a href="#"
+                                class="flex justify-center items-center bg-teal-500 text-white  p-2 rounded-lg w-8 h-8 text-center"><i class="fa-solid fa-download"></i></a>
+                            <a href="#" class="flex justify-center items-center bg-blue-600 text-white p-2 rounded-lg w-8 h-8 text-center"><i class="fa-solid fa-eye"></i></i></a>
                             <form action="" class="m-0">
-                                <button type="submit" href="#"
-                                    class="px-2 py-1 bg-red-500 text-white rounded">Hapus</button>
+                                <button type="submit" href="#" class="flex justify-center items-center bg-red-600 text-white p-2 rounded-lg w-8 h-8 text-center"><i class="fa-solid fa-trash"></i></button>
                             </form>
                         </td>
                     </tr>
@@ -98,18 +98,17 @@
         </div>
     </div>
     <!-- proses unggah end -->
-
 @endsection
 
 @push('script')
     <script>
-        $(document).ready(function () {
-            $('#closeProgres').click(function () {
+        $(document).ready(function() {
+            $('#closeProgres').click(function() {
                 // console.log('ok')
                 $('.progres-unggah').addClass('hidden')
             })
 
-            $('#hideProgres').click(function (e) {
+            $('#hideProgres').click(function(e) {
                 e.preventDefault()
                 // console.log('ok')
                 $('#contentUnggah').toggleClass('hidden');

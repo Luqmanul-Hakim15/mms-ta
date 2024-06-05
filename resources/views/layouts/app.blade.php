@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-side">
 
 <head>
     <meta charset="UTF-8">
@@ -14,7 +14,8 @@
 
 <body>
 
-    @include('components.navbar')
+    {{--  @include('components.navbar')  --}}
+    <x-navbar></x-navbar>
 
     <main class="flex h-screen" x-data="{ popOpenDelete: false }">
         @include('components.sidebar')

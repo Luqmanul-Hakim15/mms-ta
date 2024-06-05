@@ -12,7 +12,7 @@ class AdminController extends Controller
     public function index()
     {
         //
-        return view('admin.surat-masuk');
+        return view('admin.incomingletter');
     }
 
     public function addMail()
