@@ -7,23 +7,23 @@
             <form action="{{ route('verificator-post') }}" method="POST" enctype="multipart/form-data">
                 @csrf
                 <div class="mb-6">
+                    <label for="signatureCode" class="">Kode</label>
+                    <input type="text" name="signatureCode" id="signatureCode" placeholder="Cth. JVS-xx"
+                        class="w-full px-4 py-3 border mt-2 border-line rounded-md focus:outline-spotSubtle">
+                </div>
+                <div class="mb-6">
                     <label for="namaVerif" class="">Nama Verifikator</label>
                     <input type="text" name="name" id="namaVerif" placeholder="Cth. Luqman"
                         class="w-full px-4 py-3 border mt-2 border-line rounded-md focus:outline-spotSubtle">
                 </div>
-                <!-- <div class="mb-6">
-                    <label for="peruRif" class="">Perusahaan</label>
-                    <input type="text" name="" id="peruRif" placeholder="Cth. Javas Teknologi"
-                        class="w-full px-4 py-3 border mt-2 border-line rounded-md focus:outline-spotSubtle">
-                </div> -->
                 <div class="mb-6">
                     <label for="jabVerif" class="">Jabatan</label>
                     <input type="text" name="position" id="jabVerif" placeholder="Cth. Board of Directors"
                         class="w-full px-4 py-3 border mt-2 border-line rounded-md focus:outline-spotSubtle">
                 </div>
                 <div class="mb-6">
-                    <label for="ttdVerif" class="mb-2">Unggah Tanda Tangan</label>
-                    <input type="file" name="" class="dropVerif" id="">
+                    <label for="ttdVerif" class="mb-2">Unggah </label>
+                    <input type="file" name="signatureImage" class="dropVerif" id="ttdVerif">
                 </div>
                 <div class="flex justify-end mb-6">
                     <button type="submit" class="px-6 py-3 bg-primary text-white font-semibold rounded-xl">Tambah

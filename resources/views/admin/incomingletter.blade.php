@@ -25,27 +25,45 @@
             <thead class="bg-spotSubtle">
                 <tr>
                     <th class="border border-neutral-100 px-6 py-3 !w-[50px]">No</th>
+                    <th class="border border-neutral-100 px-6 py-3 text-left">Nama Surat</th>
                     <th class="border border-neutral-100 px-6 py-3 text-left">Tanggal</th>
                     <th class="border border-neutral-100 px-6 py-3 text-left">Penerima</th>
-                    <th class="border border-neutral-100 px-6 py-3 text-left">Jumlah Surat Masuk</th>
                     <th class="border border-neutral-100 px-6 py-3 text-left">Aksi</th>
                 </tr>
             </thead>
             <tbody>
-                @php
+                <!-- @php
                     $surat_masuk = [
-                        ['12-12-2024', 'Rhonda Rheos', 125],
-                        ['13-12-2024', 'Rhondi Rheos', 100],
-                        ['14-12-2024', 'Rhondo Rheos', 225],
-                        ['15-12-2024', 'Rhondu Rheos', 25],
+                        ['Surat Undangan RSI Sultan Agung', '10-05-2024', 'Abdul Kholid'],
+                        ['Surat Perjanjian Kerjasama Piwulang Becik', '13-05-2024', 'Abdul Kholid'],
+                        ['Surat Permohonan Magang Universitas Amikom Yogyakarta', '17-05-2024', 'Andariska Pramudita'],
+                        ['Jawaban Surat Perjanjian Kerjasama Adaro', '25-05-2024', 'Didi Nur Kartiyono'],
                     ];
-                @endphp
-                @foreach ($surat_masuk as $key => $item)
+                @endphp -->
+                @foreach($data as $d)
+                <tr>
+                    <td>
+                        {{ $d->signature_code }}
+                    </td>
+                    <td>{{ $d->name }}</td>
+                    <td>{{ $d->position }}</td>
+                    <td class="flex gap-2 text-white justify-center items-center">
+                        <a href="" class="flex justify-center items-center bg-teal-500 p-2 rounded-lg w-8 h-8 text-center">
+                            <i class="fa-solid fa-pen fa-sm"></i>
+                        </a>
+                        <a href="javascript:(0)" @click="popOpenDelete=true" class="flex justify-center items-center bg-red-600 p-2 rounded-lg w-8 h-8 text-center">
+                            <i class="fa-solid fa-trash fa-sm"></i>
+                        </a>
+                    </td>
+                </tr>
+                @endforeach
+                <!-- @foreach ($surat_masuk as $key => $item)
+                
                     <tr>
                         <td class="border border-neutral-100 px-6 py-3 !w-[50px] text-center">{{ $key + 1 }}</td>
                         <td class="border border-neutral-100 px-6 py-3 text-left">{{ $item[0] }}</td>
                         <td class="border border-neutral-100 px-6 py-3 text-left">{{ $item[1] }}</td>
-                        <td class="border border-neutral-100 px-6 py-3 text-left">{{ $item[2] . ' Surat Masuk' }}</td>
+                        <td class="border border-neutral-100 px-6 py-3 text-left">{{ $item[2] }}</td>
                         <td class="border border-neutral-100 p-2 text-left flex justify-center items-center gap-3">
                             <a href="#"
                                 class="flex justify-center items-center bg-teal-500 text-white  p-2 rounded-lg w-8 h-8 text-center"><i class="fa-solid fa-download"></i></a>
@@ -55,7 +73,7 @@
                             </form>
                         </td>
                     </tr>
-                @endforeach
+                @endforeach -->
             </tbody>
         </table>
     </div>
