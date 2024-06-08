@@ -2,7 +2,6 @@
 
 @section('content')
 <x-header>Template Footer</x-header>
-{{-- Section Main Start  --}}
 <div x-data="{ footerAdd: false, footerTem: null }">
     <div class="kategori">
         <div class="rounded-xl drop-shadow-lg">
@@ -31,7 +30,7 @@
                     </div>
                 </a>
                 @endforeach
-                <!-- <a href="javascript:void(0)">
+
                         <div class="card-tempalte-1 text-center ">
                             <div class="relative" @mouseenter="footerTem='footer2'" @mouseleave="footerTem=null">
                                 <div x-show="footerTem === 'footer2'" x-transition
@@ -123,84 +122,96 @@
                             </div>
                             <h3 class="py-3 font-semibold">footer 5</h3>
                         </div>
-                    </a> -->
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div>
+            <div x-show="footerAdd" x-transition>
+                <div class="fixed top-0 left-0 right-0 bottom-0 inset-0 bg-gray-500 opacity-75  z-10">
+                </div>
+            </div>
+            <div x-show="footerAdd" x-transition.origin.bottom.duration.500ms
+                id="tambahKop"class="w-1/2 bg-white rounded-xl p-6 absolute mx-auto top-[100px] left-[350px] z-20 drop-shadow-md">
+                <div class="flex justify-between items-start pb-6">
+                    <div class="flex flex-col ">
+                        <h3 class="text-xl font-bold text-primary">Tambah Footer</h3>
+                        <p class="text-sm opacity-50 w-3/4">tambah Footer surat anda agar berfariasi ketika memakainya
+                            nanti</p>
+                    </div>
+                    <button @click="footerAdd=false"><i class="fas fa-xmark fa-xl"></i></button>
+                </div>
+                <form action="{{ route('footer-post') }}" method="POST" enctype="multipart/form-data">
+                    @csrf
+                    <div class="mb-6">
+                        <label for="nameFooter" class="pb-3">Nama Footer</label>
+                        <input type="text" id="nameFooter" name="name"
+                            class="px-4 mt-3 rounded-lg py-2 border border-line w-full focus:outline-spotSubtle">
+                    </div>
+                    <div class="mb-6 flex gap-2 items-center">
+                        <div>
+                            <input type="radio" name="ukuran" id="A4" value="a4">
+                            <label for="A4">3508 x 2480 px (A4)</label>
+                        </div>
+                        <div>
+                            <input type="radio" name="ukuran" id="legal" value="legal">
+                            <label for="legal">3400 x 5600 px (legal)</label>
+                        </div>
+                        <div>
+                            <input type="radio" name="ukuran" id="tabloid" value="tabloid">
+                            <label for="tabloid">3300 x 5100 px (Tabloid)</label>
+                        </div>
+                    </div>
+                    <div class="mb-6 flex gap-2 items-center">
+                        <input type="checkbox" name="default" id="defaultFooter">
+                        <label for="defaultFooter">Jadikan sebagai default footer</label>
+                    </div>
+                    <div>
+                        <label for="templateFooter">Template Footer</label>
+                        <input type="file" name="templateFooter" id="templateFooter" class="dropify dropFooter">
+                    </div>
+                    <div class="flex justify-center mt-6"><button
+                            class="px-4 py-2 rounded-lg bg-primary w-full text-white font-semibold">Tambah Footer</button>
+                    </div>
+                </form>
+            </div>
+            <div class="flex justify-end py-6">
+                <ul class="inline-flex -space-x-px text-sm">
+                    <li>
+                        <a href="#"
+                            class="flex items-center justify-center px-3 h-8 ml-0 leading-tight text-gray-500 bg-white border border-gray-300 rounded-l-lg hover:bg-gray-100 hover:text-gray-700 "><i
+                                class="ph-bold ph-caret-left fa-lg"></i></a>
+                    </li>
+                    <li>
+                        <a href="#"
+                            class="flex items-center justify-center px-3 h-8 leading-tight text-white bg-primary border border-gray-300 hover:bg-spotSubtle hover:text-gray-700 ">1</a>
+                    </li>
+                    <li>
+                        <a href="#"
+                            class="flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-spotSubtle hover:text-gray-700 ">2</a>
+                    </li>
+                    <li>
+                        <a href="#" aria-current="page"
+                            class="flex items-center justify-center px-3 h-8 text-black border border-gray-300 bg-white hover:bg-spotSubtle  ">3</a>
+                    </li>
+                    <li>
+                        <a href="#"
+                            class="flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-spotSubtle hover:text-gray-700 ">4</a>
+                    </li>
+                    <li>
+                        <a href="#"
+                            class="flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-spotSubtle hover:text-gray-700 ">...</a>
+                    </li>
+                    <li>
+                        <a href="#"
+                            class="flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-primary bg-opacity-15 border-gray-300 rounded-r-lg hover:bg-spotSubtle hover:text-gray-700 "><i
+                                class="ph-bold ph-caret-right"></i></a>
+                    </li>
+                </ul>
             </div>
         </div>
     </div>
-    <div>
-        <div x-show="footerAdd" x-transition>
-            <div class="fixed top-0 left-0 right-0 bottom-0 inset-0 bg-gray-500 opacity-75  z-10">
-            </div>
-        </div>
-        <div x-show="footerAdd" x-transition.origin.bottom.duration.500ms id="tambahKop" class="w-1/2 bg-white rounded-xl p-6 absolute mx-auto top-[100px] left-[350px] z-20 drop-shadow-md">
-            <div class="flex justify-between items-start pb-6">
-                <div class="flex flex-col ">
-                    <h3 class="text-xl font-bold text-primary">Tambah Footer</h3>
-                    <p class="text-sm opacity-50 w-3/4">tambah Footer surat anda agar berfariasi ketika memakainya
-                        nanti</p>
-                </div>
-                <button @click="footerAdd=false"><i class="fas fa-xmark fa-xl"></i></button>
-            </div>
-            <form action="{{ route('footer-post') }}" method="POST" enctype="multipart/form-data">
-                @csrf
-                <div class="mb-6">
-                    <label for="nameFooter" class="pb-3">Nama Footer</label>
-                    <input type="text" id="nameFooter" name="name" class="px-4 mt-3 rounded-lg py-2 border border-line w-full focus:outline-spotSubtle">
-                </div>
-                <div class="mb-6 flex gap-2 items-center">
-                    <div>
-                        <input type="radio" name="ukuran" id="A4" value="a4">
-                        <label for="A4">3508 x 2480 px (A4)</label>
-                    </div>
-                    <div>
-                        <input type="radio" name="ukuran" id="legal" value="legal">
-                        <label for="legal">3400 x 5600 px (legal)</label>
-                    </div>
-                    <div>
-                        <input type="radio" name="ukuran" id="tabloid" value="tabloid">
-                        <label for="tabloid">3300 x 5100 px (Tabloid)</label>
-                    </div>
-                </div>
-                <div class="mb-6 flex gap-2 items-center">
-                    <input type="checkbox" name="default" id="defaultFooter">
-                    <label for="defaultFooter">Jadikan sebagai default footer</label>
-                </div>
-                <div>
-                    <label for="templateFooter">Template Footer</label>
-                    <input type="file" name="templateFooter" id="templateFooter" class="dropify dropFooter">
-                </div>
-                <div class="flex justify-center mt-6"><button class="px-4 py-2 rounded-lg bg-primary w-full text-white font-semibold">Tambah Footer</button>
-                </div>
-            </form>
-        </div>
-        <div class="flex justify-end py-6">
-            <ul class="inline-flex -space-x-px text-sm">
-                <li>
-                    <a href="#" class="flex items-center justify-center px-3 h-8 ml-0 leading-tight text-gray-500 bg-white border border-gray-300 rounded-l-lg hover:bg-gray-100 hover:text-gray-700 "><i class="ph-bold ph-caret-left fa-lg"></i></a>
-                </li>
-                <li>
-                    <a href="#" class="flex items-center justify-center px-3 h-8 leading-tight text-white bg-primary border border-gray-300 hover:bg-spotSubtle hover:text-gray-700 ">1</a>
-                </li>
-                <li>
-                    <a href="#" class="flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-spotSubtle hover:text-gray-700 ">2</a>
-                </li>
-                <li>
-                    <a href="#" aria-current="page" class="flex items-center justify-center px-3 h-8 text-black border border-gray-300 bg-white hover:bg-spotSubtle  ">3</a>
-                </li>
-                <li>
-                    <a href="#" class="flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-spotSubtle hover:text-gray-700 ">4</a>
-                </li>
-                <li>
-                    <a href="#" class="flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-spotSubtle hover:text-gray-700 ">...</a>
-                </li>
-                <li>
-                    <a href="#" class="flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-primary bg-opacity-15 border-gray-300 rounded-r-lg hover:bg-spotSubtle hover:text-gray-700 "><i class="ph-bold ph-caret-right"></i></a>
-                </li>
-            </ul>
-        </div>
-    </div>
-</div>
-{{-- Section Main End  --}}
+    {{-- Section Main End  --}}
 
 {{-- Section Pop Up Start  --}}
 {{-- <div x-show="popOpenDelete"  >
