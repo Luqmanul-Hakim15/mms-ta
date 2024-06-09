@@ -16,9 +16,10 @@ class AdminController extends Controller
      */
     public function index()
     {
-        //
-        $data = IncomingLetter::all();
-        return view('admin.incomingletters', compact('data'));
+
+        $data = IncomingLetter::with('user')->get();
+        return view('admin.incomingletter', compact('data'));
+
     }
 
     public function addMail()
@@ -95,6 +96,9 @@ class AdminController extends Controller
     }
     public function adduser() {
         return view('admin.addAccount');
+    }
+    public function internLetter() {
+        return view('surat.intern');
     }
     /**
      * Show the form for creating a new resource.
