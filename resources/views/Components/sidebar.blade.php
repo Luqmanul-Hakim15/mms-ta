@@ -60,12 +60,8 @@
                                 class="ph-fill ph-key fa-lg me-3"></i>Ganti Password</a>
                     </li>
                     <li>
-                        <a href="{{ route('admin.users') }}"
-                            class="block p-3 rounded-lg   transition duration-200 delay-75 {{ Request::routeIs('admin.users', 'admin.adduser') ? 'bg-primary font-semibold text-white hover:font-medium hover:bg-primary hover:bg-opacity-5 hover:text-black' : 'hover:bg-primary hover:bg-opacity-5 hover:text-black bg-white font-medium' }}"><i
-                                class="ph-fill ph-users-three fa-lg me-3"></i>Logout</a>
-                    <li>
                       <a href="{{ route('logout') }}" class="w-full block p-3  text-black rounded-lg font-medium hover:bg-primary hover:bg-opacity-5 hover:text-black"><i class="ph-bold ph-sign-out fa-lg me-3"></i>Log out</a>
-                  </li>
+                    </li>
                 </ul>
             </div>
         </div>

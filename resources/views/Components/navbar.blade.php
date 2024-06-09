@@ -6,6 +6,6 @@
     <div class="flex items-center gap-6">
         <button type="button" class="flex items-center p-2 hover:bg-neutral-50 rounded-full w-10 h-10 text-2xl hover:text-primary font-medium"><i class="ph ph-bell "></i></button>
         {{-- <div class="w-10 h-10 rounded-full bg-cover bg-center bg-no-repeat bg-slate-600"></div> --}}
-        <div class="profile w-10 relative h-10 rounded-full bg-slate-400 bg-cover bg-center bg-no-repeat" style="background-image: url('https://source.unsplash.com/featured?profile');"></div>
+        <div class="profile w-10 relative h-10 rounded-full bg-slate-400 bg-cover bg-center bg-no-repeat" style="background-image: url('{{ asset(Auth::user()->image_profile) }}');"></div>
     </div>
 </nav>
