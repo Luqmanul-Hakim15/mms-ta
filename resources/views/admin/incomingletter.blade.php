@@ -52,9 +52,12 @@
                         <a href="" class="flex justify-center items-center bg-teal-500 p-2 rounded-lg w-8 h-8 text-center">
                             <i class="fa-solid fa-pen fa-sm"></i>
                         </a>
-                        <a href="javascript:(0)" @click="popOpenDelete=true" class="flex justify-center items-center bg-red-600 p-2 rounded-lg w-8 h-8 text-center">
-                            <i class="fa-solid fa-trash fa-sm"></i>
-                        </a>
+                        <form action="{{ route('delete.incoming', $d->id) }}" method="POST" onsubmit="return confirm('Are you sure you want to delete this item?');">
+                            @csrf
+                            <button type="submit" class="flex justify-center items-center bg-red-600 p-2 rounded-lg w-8 h-8 text-center">
+                                <i class="fa-solid fa-trash fa-sm"></i>
+                            </button>
+                        </form>
                     </td>
                 </tr>
                 @endforeach

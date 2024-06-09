@@ -6,10 +6,12 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Auth;
 use App\Models\IncomingLetter;
+use Illuminate\Support\Facades\Storage;
 
 class IncomingLetterController extends Controller
 {
-    public function create(Request $request) {
+    public function create(Request $request)
+    {
         $request->validate([
             'fileName' => 'required|string|max:255',
             'tanggal' => 'required',
@@ -34,5 +36,19 @@ class IncomingLetterController extends Controller
         IncomingLetter::create($data);
 
         return redirect()->route('surat-masuk')->with('success', 'Incoming Letter added successfully.');
+    }
+    public function delete($id)
+    {
+        $item = IncomingLetter::find($id);
+        if ($item) {
+            // Hapus file dari storage
+            if ($item->file && Storage::disk('public')->exists($item->file)) {
+                Storage::disk('public')->delete($item->file);
+            }
+
+            // Hapus data dari database
+            $item->delete();
+        }
+        return redirect()->back()->with('status', 'Item deleted successfully!');
     }
 }
