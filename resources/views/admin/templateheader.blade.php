@@ -134,7 +134,7 @@
                         </div>
                     </a> -->
                 </div>
-                <div class="flex justify-end py-6">
+                {{-- <div class="flex justify-end py-6">
                     <ul class="inline-flex -space-x-px text-sm">
                         <li>
                             <a href="#" class="flex items-center justify-center px-3 h-8 ml-0 leading-tight text-gray-500 bg-white border border-gray-300 rounded-l-lg hover:bg-gray-100 hover:text-gray-700 "><i class="ph-bold ph-caret-left fa-lg"></i></a>
@@ -158,7 +158,7 @@
                             <a href="#" class="flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-primary bg-opacity-15 border-gray-300 rounded-r-lg hover:bg-spotSubtle hover:text-gray-700 "><i class="ph-bold ph-caret-right"></i></a>
                         </li>
                     </ul>
-                </div>
+                </div> --}}
             </div>
         </div>
     </div>

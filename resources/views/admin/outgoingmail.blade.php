@@ -55,9 +55,9 @@
             <tbody>
                 @php
                     $surat_keluar = [
-                        ['J/I/12/2023', 'Luqmanul Hakim', 'Surat Keterangan Kerja', 'Magang','TTD'],
-                        ['J/I/12/2023', 'Luqmanul Hakim', '', 'SPK','Tidak TTD'],
-                        ['J/I/12/2023', 'Luqmanul Hakim', '', 'BAST','TTD'],
+                        ['J/I/12/2023', 'Luqmanul Hakim', 'Surat Keterangan Kerja', 'Magang', 'TTD'],
+                        ['J/I/12/2023', 'Luqmanul Hakim', '', 'SPK', 'Tidak TTD'],
+                        ['J/I/12/2023', 'Luqmanul Hakim', '', 'BAST', 'TTD'],
                     ];
                 @endphp
                 @foreach ($surat_keluar as $key => $item)
@@ -69,11 +69,16 @@
                         <td class="border border-neutral-100 px-6 py-3 text-left">{{ $item[3] }}</td>
                         <td class="border border-neutral-100 px-6 py-3 text-left">{{ $item[4] }}</td>
                         <td class="border border-neutral-100 p-2 text-left flex justify-center items-center gap-3">
-                            <a href="#" class="px-2 py-1 bg-green-500 text-white rounded">Unduh</a>
-                            <a href="#" class="px-2 py-1 bg-blue-500 text-white rounded">Lihat</a>
+                            {{-- <a href="#"
+                                class="flex justify-center items-center bg-teal-500 text-white  p-2 rounded-lg w-8 h-8 text-center"><i
+                                    class="fa-solid fa-download"></i></a> --}}
+                            <a href="#"
+                                class="flex justify-center items-center bg-blue-600 text-white p-2 rounded-lg w-8 h-8 text-center"><i
+                                    class="fa-solid fa-eye"></i></i></a>
                             <form action="" class="m-0">
                                 <button type="submit" href="#"
-                                    class="px-2 py-1 bg-red-500 text-white rounded">Hapus</button>
+                                    class="flex justify-center items-center bg-red-600 text-white p-2 rounded-lg w-8 h-8 text-center"><i
+                                        class="fa-solid fa-trash"></i></button>
                             </form>
                         </td>
                     </tr>
