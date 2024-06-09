@@ -69,9 +69,9 @@
                         <td class="border border-neutral-100 px-6 py-3 text-left">{{ $item[3] }}</td>
                         <td class="border border-neutral-100 px-6 py-3 text-left">{{ $item[4] }}</td>
                         <td class="border border-neutral-100 p-2 text-left flex justify-center items-center gap-3">
-                            <a href="#"
+                            {{-- <a href="#"
                                 class="flex justify-center items-center bg-teal-500 text-white  p-2 rounded-lg w-8 h-8 text-center"><i
-                                    class="fa-solid fa-download"></i></a>
+                                    class="fa-solid fa-download"></i></a> --}}
                             <a href="#"
                                 class="flex justify-center items-center bg-blue-600 text-white p-2 rounded-lg w-8 h-8 text-center"><i
                                     class="fa-solid fa-eye"></i></i></a>

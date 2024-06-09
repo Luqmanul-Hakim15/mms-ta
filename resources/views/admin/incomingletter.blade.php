@@ -48,8 +48,8 @@
                         <td class="border border-neutral-100 px-6 py-3 text-left">{{ $item[1] }}</td>
                         <td class="border border-neutral-100 px-6 py-3 text-left">{{ $item[2] }}</td>
                         <td class="border border-neutral-100 p-2 text-left flex justify-center items-center gap-3">
-                            <a href="#"
-                                class="flex justify-center items-center bg-teal-500 text-white  p-2 rounded-lg w-8 h-8 text-center"><i class="fa-solid fa-download"></i></a>
+                            {{-- <a href="#"
+                                class="flex justify-center items-center bg-teal-500 text-white  p-2 rounded-lg w-8 h-8 text-center"><i class="fa-solid fa-download"></i></a> --}}
                             <a href="#" class="flex justify-center items-center bg-blue-600 text-white p-2 rounded-lg w-8 h-8 text-center"><i class="fa-solid fa-eye"></i></i></a>
                             <form action="" class="m-0">
                                 <button type="submit" href="#" class="flex justify-center items-center bg-red-600 text-white p-2 rounded-lg w-8 h-8 text-center"><i class="fa-solid fa-trash"></i></button>
