@@ -31,7 +31,7 @@
                 </a>
                 @endforeach
 
-                        <div class="card-tempalte-1 text-center ">
+                        <!-- <div class="card-tempalte-1 text-center ">
                             <div class="relative" @mouseenter="footerTem='footer2'" @mouseleave="footerTem=null">
                                 <div x-show="footerTem === 'footer2'" x-transition
                                     class="absolute top-0 left-0 right-0 bottom-0 inset-0 bg-black opacity-50">
@@ -125,7 +125,7 @@
                     </a>
                 </div>
             </div>
-        </div>
+        </div> -->
         <div>
             <div x-show="footerAdd" x-transition>
                 <div class="fixed top-0 left-0 right-0 bottom-0 inset-0 bg-gray-500 opacity-75  z-10">

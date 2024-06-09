@@ -19,4 +19,9 @@ class IncomingLetter extends Model
     protected $fillable = [
         'user_id', 'tanggal', 'file_name', 'file'
     ];
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
 }
