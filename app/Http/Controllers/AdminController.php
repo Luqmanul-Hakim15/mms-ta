@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\FooterTemplate;
 use App\Models\HeaderTemplate;
+use App\Models\IncomingLetter;
 use App\Models\Verificator;
 use Illuminate\Http\Request;
 use Illuminate\Support\Carbon;
@@ -16,7 +17,8 @@ class AdminController extends Controller
     public function index()
     {
         //
-        return view('admin.surat-masuk');
+        $data = IncomingLetter::all();
+        return view('admin.incomingletters', compact('data'));
     }
 
     public function addMail()

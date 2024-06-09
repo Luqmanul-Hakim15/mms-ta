@@ -12,13 +12,13 @@
         <div class="mb-6 relative">
             <label for="tanggal">Tanggal Masuk</label>
             <input type="text" name="tanggal" id="tanggal" value="{{ $date }}"
-                class="w-full py-3 px-4 mt-3 border-line border rounded-md focus:outline-spotSubtle" readonly>
+                class="w-full py-3 px-4 mt-3 tanggal border-line border rounded-md focus:outline-spotSubtle" readonly>
         </div>
         <div class="mb-6">
             <label for="incomingLetter" class="mb-2">Unggah Surat Masuk</label>
             <input type="file" name="fileInput" class="dropIncomingMail" id="incomingLetter">
         </div>
-        <!-- <div id="dropzone" class="mb-6">
+        {{--  <!-- <div id="dropzone" class="mb-6">
             <div
                 class="relative border-dashed border-4  border-primary h-72 flex justify-center items-center rounded-md bg-primary bg-opacity-5">
                 <label for="fileInput" class="text-center cursor-pointer">
@@ -31,7 +31,7 @@
                 </label>
             </div>
             <div id="fileList" class="text-center flex gap-3 flex-wrap"></div>
-        </div> -->
+        </div> -->   --}}
         <div class="flex justify-end gap-4">
             <a href="index.html" class="px-4 py-2 border-line border text-md rounded-md text-grey font-semibold">Kembali</a>
             <button id="buttonPreview"
@@ -58,59 +58,23 @@
                 tpl: {
                     message: '<div class="dropify-message"><span class="file-icon" /> <p style="font-size: 24px;">Drag and drop a file here or click</p></div>',
                 }
-            })
+            });
+            {{--  $('.tanggal').pickadate({
+                labelMonthNext: 'Bulan Selanjutnya',
+                labelMonthPrev: 'Bulan Sebelumnya',
+                labelMonthSelect: 'Pilih Bulan',
+                labelYearSelect: 'Pilih Tahun',
+                selectMonths: true,
+                selectYears: true,
+                format: 'dddd, dd mmm yyyy',
+                formatSubmit: 'yyyy/mm/dd',
+                hiddenPrefix: 'prefix__',
+                hiddenSuffix: '__suffix'
+            });  --}}
         })
     </script>
-    <!-- <script type="text/javascript">
+    {{--  <!-- <script type="text/javascript">
         $(document).ready(function() {
-
-            const dropzone = $('#dropzone');
-            const inputFile = $('#fileInput');
-            const listFile = $('#fileList');
-
-            dropzone.on('dragover', function(e) {
-                e.preventDefault();
-                dropzone.addClass('border-blue-500');
-            });
-            dropzone.on('dragleave', function(e) {
-                e.preventDefault();
-                dropzone.removeClass('border-blue-500');
-            })
-            dropzone.on('drop', function(e) {
-                e.preventDefault();
-                dropzone.removeClass('border-blue-500');
-                const files = e.originalEvent.dataTransfer.files;
-                handleFiles(files);
-            });
-            inputFile.on('change', function() {
-                const files = inputFile[0].files;
-                handleFiles(files);
-            });
-
-            function handleFiles(files) {
-                for (const file of files) {
-                    if (file.type === 'application/pdf') {
-                        const listItem = $('<div>').addClass(
-                            'bg-primary bg-opacity-5 p-2 mt-2 rounded-md flex justify-between items-center');
-                        const fileName = $('<span>').text(file.name);
-                        const deleteButton = $('<button>').html('<i class="fa fa-trash"></i>').addClass(
-                            'text-red-500 ml-4 cursor-pointer');
-
-                        deleteButton.on('click', function() {
-                            listItem.remove();
-                        });
-
-                        listItem.append(fileName, deleteButton);
-                        listFile.append(listItem);
-                        // $('#alertRed').addClass('hidden')
-                        // $('#masukSurat').removeClass('mt-6')
-                    } else {
-                        // $('#masukSurat').addClass('mt-6')
-                        // $('#alertRed').addClass('block')
-                    }
-                }
-            }
-
             $('.tanggal').pickadate({
                 labelMonthNext: 'Bulan Selanjutnya',
                 labelMonthPrev: 'Bulan Sebelumnya',
@@ -124,5 +88,5 @@
                 hiddenSuffix: '__suffix'
             });
         })
-    </script> -->
+    </script> -->  --}}
 @endpush

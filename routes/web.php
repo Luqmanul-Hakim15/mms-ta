@@ -30,11 +30,11 @@ Route::get('register', [AdminController::class, 'showRegistrationForm'])->name('
 Route::post('/login-post', [AuthController::class, 'login'])->name('login-post');
 Route::post('/register-post', [AuthController::class, 'register'])->name('register-post');
 Route::group(['middleware' => ['auth']], function () { 
-    Route::get('/surat-masuk', [AdminController::class, 'index'])->name('surat-masuk');
-    Route::get('/surat-masuk/tambah', [AdminController::class, 'addMail'])->name('addmail');
-    Route::get('/surat-keluar', [AdminController::class, 'outgoingmails'])->name('outmail');
-    Route::get('/buat-surat', [AdminController::class, 'createmail'])->name('createmail');
-    Route::get('/preview-surat', [AdminController::class, 'previewemail'])->name('premail');
+    Route::get('/incomingletter', [AdminController::class, 'index'])->name('surat-masuk');
+    Route::get('/incomingletter/add', [AdminController::class, 'addMail'])->name('addmail');
+    Route::get('/outgoingmail', [AdminController::class, 'outgoingmails'])->name('outmail');
+    Route::get('/createmail', [AdminController::class, 'createmail'])->name('createmail');
+    Route::get('/previewmail', [AdminController::class, 'previewemail'])->name('premail');
     Route::get('/mailshare', [AdminController::class, 'sharemail'])->name('mailshare');
     Route::get('/incomingmails', [AdminController::class, 'incomingmails'])->name('admin.incomingmail');
     Route::post('/incomingmails-post', [IncomingLetterController::class, 'create'])->name('incomingmail-post');
