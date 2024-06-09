@@ -16,8 +16,10 @@ class AdminController extends Controller
      */
     public function index()
     {
+
         $data = IncomingLetter::with('user')->get();
         return view('admin.incomingletter', compact('data'));
+
     }
 
     public function addMail()
