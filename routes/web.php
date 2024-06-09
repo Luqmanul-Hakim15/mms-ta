@@ -48,12 +48,13 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('/addverifikators', [AdminController::class, 'addverifikators'])->name('admin.addverifikator');
     Route::post('/verificator-post', [VerificatorTemplateController::class, 'create'])->name('verificator-post');
     Route::get('/account-profile', [AdminController::class, 'profil'])->name('admin.profil');
+    Route::post('/profile/update', [AdminController::class, 'updatedProfil'])->name('profile.update');
     Route::get('/internLetter', [AdminController::class, 'internLetter'])->name('surat.intern');
     Route::get('/change-password', [AdminController::class, 'change'])->name('admin.change');
+    Route::post('/change-password-post', [AdminController::class, 'changePassword'])->name('change.password');
     Route::get('/users', [AdminController::class, 'user'])->name('admin.users');
     Route::get('/addusers', [AdminController::class, 'adduser'])->name('admin.adduser');
     Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
-
 });
 
 // Route::resource('superadmin', UserController::class, 'superadmin');

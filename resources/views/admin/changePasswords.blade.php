@@ -16,7 +16,8 @@
                         bawah ini. Maksimal harus 8 karakter</p>
                 </div>
                 <div class="pb-10">
-                    <form action="">
+                    <form action="{{ route('change.password') }}" method="POST" enctype="multipart/form-data">
+                        @csrf
                         <div class="mb-6">
                             <label for="password">Kata Sandi Lama</label>
                             <!-- <input type="password" name="password" placeholder="Masukan Kata Sandi Lama" class="w-full focus:outline-spotSubtle border border-line px-4 py-3 rounded-lg mt-3"> -->
