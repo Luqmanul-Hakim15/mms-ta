@@ -52,7 +52,7 @@
                     <li>
                         <a href="{{ route('admin.profil') }}"
                             class="block p-3 rounded-lg   transition duration-200 delay-75 {{ Request::routeIs('admin.profil') ? 'bg-primary font-semibold text-white hover:font-medium hover:bg-primary hover:bg-opacity-5 hover:text-black' : 'hover:bg-primary hover:bg-opacity-5 hover:text-black bg-white font-medium' }}"><i
-                                class="ph-fill ph-user fa-lg me-3"></i></i> Akun</a>
+                                class="ph-fill ph-user fa-lg me-3"></i></i>Akun</a>
                     </li>
                     <li>
                         <a href="{{ route('admin.change') }}"

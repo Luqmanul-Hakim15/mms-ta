@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\FooterTemplate;
 use App\Models\HeaderTemplate;
+use App\Models\IncomingLetter;
 use App\Models\Verificator;
 use Illuminate\Http\Request;
 use Illuminate\Support\Carbon;
@@ -15,8 +16,8 @@ class AdminController extends Controller
      */
     public function index()
     {
-        //
-        return view('admin.incomingletter');
+        $data = IncomingLetter::with('user')->get();
+        return view('admin.incomingletter', compact('data'));
     }
 
     public function addMail()
@@ -93,6 +94,9 @@ class AdminController extends Controller
     }
     public function adduser() {
         return view('admin.addAccount');
+    }
+    public function internLetter() {
+        return view('surat.intern');
     }
     /**
      * Show the form for creating a new resource.
