@@ -21,13 +21,18 @@
                                 </div>
                                 <div x-show="headerTem === 'header{{ $d->id }}'" class="absolute flex items-center justify-center gap-4 top-0 left-0 right-0 bottom-0 inset-0 bg-gray-500 bg-opacity-75">
                                     @if($d->default == 0)
-                                    <button class="bg-amber-400 rounded-full w-10 h-10 text-white flex justify-center items-center hover:bg-opacity-50 p-2"><i class="fa fa-star"></i>
-                                    </button>
+                                    <form action="{{ route('update-default-header', $d->id) }}" method="POST">
+                                        @csrf
+                                        <button type="submit" class="bg-amber-400 rounded-full w-10 h-10 text-white flex justify-center items-center hover:bg-opacity-50 p-2">
+                                            <i class="fa fa-star"></i>
+                                        </button>
+                                    </form>
                                     @endif
-                                    <button class="bg-greenSpot rounded-full w-10 h-10 text-white flex justify-center items-center hover:bg-opacity-50 p-2"><i class="fa fa-pen"></i>
-                                    </button>
-                                    <button href="javascript:void(0)" @click="popOpenDelete = true" class="bg-primary rounded-full w-10 h-10 text-white flex justify-center items-center p-2 hover:bg-opacity-50"><i class="fa fa-trash"></i>
-                                    </button>
+                                    <button class="bg-greenSpot rounded-full w-10 h-10 text-white flex justify-center items-center hover:bg-opacity-50 p-2"><i class="fa fa-pen"></i></button>
+                                    <form action="{{ route('delete.header', $d->id) }}" method="POST">
+                                        @csrf
+                                        <button @click="popOpenDelete=true" class="bg-primary rounded-full w-10 h-10 text-white flex justify-center items-center p-2 hover:bg-opacity-50"><i class="fa fa-trash"></i></button>
+                                    </form>
                                 </div>
                                 <img src="{{ asset($d->image) }}" class=" " alt="">
                             </div>

@@ -7,6 +7,8 @@ use App\Http\Controllers\IncomingLetterController;
 use App\Http\Controllers\HeaderTemplateController;
 use App\Http\Controllers\FooterTemplateController;
 use App\Http\Controllers\VerificatorTemplateController;
+use App\Models\FooterTemplate;
+use App\Models\IncomingLetter;
 
 /*
 |--------------------------------------------------------------------------
@@ -38,12 +40,17 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('/mailshare', [AdminController::class, 'sharemail'])->name('mailshare');
     Route::get('/incomingmails', [AdminController::class, 'incomingmails'])->name('admin.incomingmail');
     Route::post('/incomingmails-post', [IncomingLetterController::class, 'create'])->name('incomingmail-post');
+    Route::post('/delete-incoming/{id}', [IncomingLetterController::class, 'delete'])->name('delete.incoming');
     Route::get('/outgoingmails', [AdminController::class, 'outgoingmails'])->name('admin.outgoingmail');
     Route::get('/templatecategories', [AdminController::class, 'templatecategories'])->name('admin.templatecategory');
     Route::get('/templateheaders', [AdminController::class, 'templateheaders'])->name('admin.templateheader');
     Route::post('/header-post', [HeaderTemplateController::class, 'create'])->name('header-post');
+    Route::post('/update-default-header/{id}', [HeaderTemplateController::class, 'updateDefault'])->name('update-default-header');
+    Route::post('/delete-header/{id}', [HeaderTemplateController::class, 'delete'])->name('delete.header');
     Route::get('/templatefooters', [AdminController::class, 'templatefooters'])->name('admin.templatefooter');
+    Route::post('/delete-footers/{id}', [FooterTemplateController::class, 'delete'])->name('delete.footer');
     Route::post('/footer-post', [FooterTemplateController::class, 'create'])->name('footer-post');
+    Route::post('/update-default/{id}', [FooterTemplateController::class, 'updateDefault'])->name('update-default');
     Route::get('/verifikators', [AdminController::class, 'verifikators'])->name('admin.verifikator');
     Route::get('/addverifikators', [AdminController::class, 'addverifikators'])->name('admin.addverifikator');
     Route::post('/verificator-post', [VerificatorTemplateController::class, 'create'])->name('verificator-post');
