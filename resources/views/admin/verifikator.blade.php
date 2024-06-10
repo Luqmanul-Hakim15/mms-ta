@@ -25,107 +25,41 @@
                     <td>{{ $d->name }}</td>
                     <td>{{ $d->position }}</td>
                     <td class="flex gap-2 text-white justify-center items-center">
-                        <a href="" class="flex justify-center items-center bg-teal-500 p-2 rounded-lg w-8 h-8 text-center">
+                        <a href="{{ route('verificator.edit', $d->id) }}" class="flex justify-center items-center bg-teal-500 p-2 rounded-lg w-8 h-8 text-center">
                             <i class="fa-solid fa-pen fa-sm"></i>
                         </a>
-                        <a href="javascript:(0)" @click="popOpenDelete=true" class="flex justify-center items-center bg-red-600 p-2 rounded-lg w-8 h-8 text-center">
-                            <i class="fa-solid fa-trash fa-sm"></i>
-                        </a>
+                        <form action="{{ route('verificator.delete', $d->id) }}" method="POST" onsubmit="return confirm('Are you sure you want to delete this item?');">
+                            @csrf
+                            <button @click="popOpenDelete=true" class="bg-red-600 text-center rounded-lg w-8 h-8 text-white flex justify-center items-center p-2 hover:bg-opacity-50"><i class="fa-solid fa-trash fa-sm"></i></button>
+                        </form> 
                     </td>
                 </tr>
                 @endforeach
-                <!-- <tr>
-                    <td>
-                        J02
-                    </td>
-                    <td>Abdul Kholid</td>
-                    <td>Web Platform Engineer Manager</td>
-                    <td class="flex gap-2 text-white justify-center items-center">
-                        <a href="" class="flex justify-center items-center bg-teal-500 p-2 rounded-lg w-8 h-8 text-center">
-                            <i class="fa-solid fa-pen fa-sm"></i>
-                        </a>
-                        <a href="javascript:(0)" @click="popOpenDelete=true" class="flex justify-center items-center bg-red-600 p-2 rounded-lg w-8 h-8 text-center">
-                            <i class="fa-solid fa-trash fa-sm"></i>
-                        </a>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        J03
-                    </td>
-                    <td>Andariska Pramudita</td>
-                    <td>Marketing Manager</td>
-                    <td class="flex gap-2 text-white justify-center items-center">
-                        <a href="" class="flex justify-center items-center bg-teal-500 p-2 rounded-lg w-8 h-8 text-center">
-                            <i class="fa-solid fa-pen fa-sm"></i>
-                        </a>
-                        <a href="javascript:(0)" @click="popOpenDelete=true" class="flex justify-center items-center bg-red-600 p-2 rounded-lg w-8 h-8 text-center">
-                            <i class="fa-solid fa-trash fa-sm"></i>
-                        </a>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        J04
-                    </td>
-                    <td>Agnis Nur Afa Zumaroh</td>
-                    <td>Web Platform Engineer</td>
-                    <td class="flex gap-2 text-white justify-center items-center">
-                        <a href="" class="flex justify-center items-center bg-teal-500 p-2 rounded-lg w-8 h-8 text-center">
-                            <i class="fa-solid fa-pen fa-sm"></i>
-                        </a>
-                        <a href="javascript:(0)" @click="popOpenDelete=true" class="flex justify-center items-center bg-red-600 p-2 rounded-lg w-8 h-8 text-center">
-                            <i class="fa-solid fa-trash fa-sm"></i>
-                        </a>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        J05
-                    </td>
-                    <td>Anando Muhammad Rahul Haz</td>
-                    <td>Web Platform Engineer</td>
-                    <td class="flex gap-2 text-white justify-center items-center">
-                        <a href="" class="flex justify-center items-center bg-teal-500 p-2 rounded-lg w-8 h-8 text-center">
-                            <i class="fa-solid fa-pen fa-sm"></i>
-                        </a>
-                        <a href="javascript:(0)" @click="popOpenDelete=true" class="flex justify-center items-center bg-red-600 p-2 rounded-lg w-8 h-8 text-center">
-                            <i class="fa-solid fa-trash fa-sm"></i>
-                        </a>
-                    </td>
-                </tr> -->
             </tbody>
         </table>
     </div>
     <div class="flex justify-end py-6">
         <ul class="inline-flex -space-x-px text-sm">
             <li>
-                <a href="#"
-                    class="flex items-center justify-center px-3 h-8 ml-0 leading-tight text-gray-500 bg-white border border-gray-300 rounded-l-lg hover:bg-gray-100 hover:text-gray-700 "><i class="ph-bold ph-caret-left fa-lg"></i></a>
+                <a href="#" class="flex items-center justify-center px-3 h-8 ml-0 leading-tight text-gray-500 bg-white border border-gray-300 rounded-l-lg hover:bg-gray-100 hover:text-gray-700 "><i class="ph-bold ph-caret-left fa-lg"></i></a>
             </li>
             <li>
-                <a href="#"
-                    class="flex items-center justify-center px-3 h-8 leading-tight text-white bg-primary border border-gray-300 hover:bg-spotSubtle hover:text-gray-700 ">1</a>
+                <a href="#" class="flex items-center justify-center px-3 h-8 leading-tight text-white bg-primary border border-gray-300 hover:bg-spotSubtle hover:text-gray-700 ">1</a>
             </li>
             <li>
-                <a href="#"
-                    class="flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-spotSubtle hover:text-gray-700 ">2</a>
+                <a href="#" class="flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-spotSubtle hover:text-gray-700 ">2</a>
             </li>
             <li>
-                <a href="#" aria-current="page"
-                    class="flex items-center justify-center px-3 h-8 text-black border border-gray-300 bg-white hover:bg-spotSubtle  ">3</a>
+                <a href="#" aria-current="page" class="flex items-center justify-center px-3 h-8 text-black border border-gray-300 bg-white hover:bg-spotSubtle  ">3</a>
             </li>
             <li>
-                <a href="#"
-                    class="flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-spotSubtle hover:text-gray-700 ">4</a>
+                <a href="#" class="flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-spotSubtle hover:text-gray-700 ">4</a>
             </li>
             <li>
-                <a href="#"
-                    class="flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-spotSubtle hover:text-gray-700 ">...</a>
+                <a href="#" class="flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-spotSubtle hover:text-gray-700 ">...</a>
             </li>
             <li>
-                <a href="#"
-                    class="flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-primary bg-opacity-15 border-gray-300 rounded-r-lg hover:bg-spotSubtle hover:text-gray-700 "><i class="ph-bold ph-caret-right"></i></a>
+                <a href="#" class="flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-primary bg-opacity-15 border-gray-300 rounded-r-lg hover:bg-spotSubtle hover:text-gray-700 "><i class="ph-bold ph-caret-right"></i></a>
             </li>
         </ul>
     </div>
