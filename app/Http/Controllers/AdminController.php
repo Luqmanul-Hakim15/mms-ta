@@ -80,7 +80,6 @@ class AdminController extends Controller
 
     public function addverifikators()
     {
-        //
         return view('admin.addverifikator');
     }
     public function showRegistrationForm()

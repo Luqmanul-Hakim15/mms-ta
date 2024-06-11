@@ -41,12 +41,10 @@ class IncomingLetterController extends Controller
     {
         $item = IncomingLetter::find($id);
         if ($item) {
-            // Hapus file dari storage
             if ($item->file && Storage::disk('public')->exists($item->file)) {
                 Storage::disk('public')->delete($item->file);
             }
 
-            // Hapus data dari database
             $item->delete();
         }
         return redirect()->back()->with('status', 'Item deleted successfully!');
