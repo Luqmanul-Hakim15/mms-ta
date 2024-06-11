@@ -47,16 +47,18 @@ Route::group(['middleware' => ['auth']], function () {
 
     Route::get('/outgoingmails', [AdminController::class, 'outgoingmails'])->name('admin.outgoingmail');
     Route::get('/templatecategories', [AdminController::class, 'templatecategories'])->name('admin.templatecategory');
-    Route::get('/templateheaders', [AdminController::class, 'templateheaders'])->name('admin.templateheader');
 
+    Route::get('/templateheaders', [AdminController::class, 'templateheaders'])->name('admin.templateheader');
     Route::post('/header-post', [HeaderTemplateController::class, 'create'])->name('header-post');
     Route::post('/update-default-header/{id}', [HeaderTemplateController::class, 'updateDefault'])->name('update-default-header');
     Route::post('/delete-header/{id}', [HeaderTemplateController::class, 'delete'])->name('delete.header');
+    Route::post('/header/update/{id}', [HeaderTemplateController::class, 'update'])->name('header-update');
 
     Route::get('/templatefooters', [AdminController::class, 'templatefooters'])->name('admin.templatefooter');
     Route::post('/delete-footers/{id}', [FooterTemplateController::class, 'delete'])->name('delete.footer');
     Route::post('/footer-post', [FooterTemplateController::class, 'create'])->name('footer-post');
     Route::post('/update-default/{id}', [FooterTemplateController::class, 'updateDefault'])->name('update-default');
+    Route::post('/footer/update/{id}', [FooterTemplateController::class, 'update'])->name('footer-update');
 
     Route::get('/verifikators', [AdminController::class, 'verifikators'])->name('admin.verifikator');
     Route::get('/addverifikators', [AdminController::class, 'addverifikators'])->name('admin.addverifikator');

@@ -68,4 +68,42 @@ class FooterTemplateController extends Controller
         }
         return redirect()->back()->with('status', 'Item deleted successfully!');
     }
+
+    public function update(Request $request, $id)
+    {
+        // Validasi input
+        $request->validate([
+            'name' => 'required|string|max:255',
+            'ukuran' => 'required|string',
+            'templateFooter' => 'nullable|file|mimes:jpeg,png,jpg,gif,svg|max:2048',
+        ]);
+
+        // Temukan footer berdasarkan ID
+        $footer = FooterTemplate::findOrFail($id);
+
+        // Update data footer
+        $footer->name = $request->name;
+        $footer->type = $request->ukuran;
+        $footer->default = $request->has('default');
+
+        // Jika ada file baru yang di-upload
+        if ($request->hasFile('templateFooter')) {
+            // Hapus file lama jika ada
+            if ($footer->image && Storage::disk('public')->exists($footer->image)) {
+                Storage::disk('public')->delete($footer->image);
+            }
+
+            // Simpan file baru
+            $file = $request->file('templateFooter');
+            $fileName = time() . '-' . $file->getClientOriginalName();
+            $file->storeAs('images/footers', $fileName, 'public');
+
+            // Update path file di database
+            $footer->image = 'images/footers/' . $fileName;
+        }
+
+        $footer->save();
+
+        return redirect()->back()->with('status', 'Footer updated successfully!');
+    }
 }

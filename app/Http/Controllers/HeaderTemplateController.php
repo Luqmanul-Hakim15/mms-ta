@@ -55,6 +55,7 @@ class HeaderTemplateController extends Controller
 
         return redirect()->back();
     }
+
     public function delete($id) {
         $item = HeaderTemplate::find($id);
         if ($item) {
@@ -65,5 +66,40 @@ class HeaderTemplateController extends Controller
             $item->delete();
         }
         return redirect()->back()->with('status', 'Item deleted successfully!');
+    }
+
+    public function update(Request $request, $id)
+    {
+        $request->validate([
+            'name' => 'required|string|max:255',
+            'ukuran' => 'required|string',
+            'templateHeader' => 'nullable|file|mimes:jpeg,png,jpg,gif,svg|max:2048',
+        ]);
+
+        $header = HeaderTemplate::findOrFail($id);
+
+        $header->name = $request->name;
+        $header->type = $request->ukuran;
+        $header->default = $request->has('default');
+
+        if ($request->hasFile('templateHeader')) {
+            if ($header->image && Storage::disk('public')->exists($header->image)) {
+                Storage::disk('public')->delete($header->image);
+            }
+
+            // Simpan file baru
+            $file = $request->file('templateHeader');
+            $fileName = time() . '-' . $file->getClientOriginalName();
+            $file->storeAs('images/headers', $fileName, 'public');
+
+            // Update path file di database
+            $header->image = 'images/headers/' . $fileName;
+        }
+
+        // Simpan perubahan
+        $header->save();
+
+        // Redirect kembali dengan pesan sukses
+        return redirect()->back()->with('status', 'Header updated successfully!');
     }
 }
