@@ -7,9 +7,7 @@ use App\Http\Controllers\IncomingLetterController;
 use App\Http\Controllers\HeaderTemplateController;
 use App\Http\Controllers\FooterTemplateController;
 use App\Http\Controllers\VerificatorTemplateController;
-use App\Models\FooterTemplate;
-use App\Models\IncomingLetter;
-use App\Models\Verificator;
+use App\Http\Controllers\OutgoingLetterController;
 
 /*
 |--------------------------------------------------------------------------
@@ -71,7 +69,12 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('/account-profile', [AdminController::class, 'profil'])->name('admin.profil');
     Route::post('/profile/update', [AdminController::class, 'updatedProfil'])->name('profile.update');
 
-    Route::get('/internLetter', [AdminController::class, 'internLetter'])->name('surat.intern');
+    Route::get('/internLetter/{id}', [AdminController::class, 'internLetter'])->name('surat.internship');
+    Route::post('/intern-form', [OutgoingLetterController::class, 'store'])->name('form.store');
+    // Route::get('internLetter/{id}/download', [OutgoingLetterController::class, 'download'])->name('internLetter.download');
+    // Route::get('internLetter/{id}', [OutgoingLetterController::class, 'show'])->name('internLetter.show');
+    Route::delete('internLetter/{id}', [OutgoingLetterController::class, 'destroy'])->name('internLetter.destroy');
+
 
     Route::get('/change-password', [AdminController::class, 'change'])->name('admin.change');
     Route::post('/change-password-post', [AdminController::class, 'changePassword'])->name('change.password');
