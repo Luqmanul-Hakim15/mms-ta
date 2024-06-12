@@ -15,6 +15,41 @@
     @vite('resources/css/app.css')
     @vite('resources/js/app.js')
     <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}">
+    <style>
+        body {
+            width: 210mm;
+            /* Lebar A4 dalam mm */
+            margin: 0 auto;
+            /* Pusatkan konten */
+            padding: 20px;
+            /* Beri jarak di sekitar konten */
+            box-sizing: border-box;
+            /* Pastikan padding tidak menambah lebar body */
+        }
+
+        @media print {
+
+            /* Sembunyikan button */
+            .button-print {
+                display: none;
+            }
+
+            /* Sembunyikan link */
+            .link-class {
+                display: none;
+            }
+        }
+
+        @media print {
+
+            /* Set ukuran halaman untuk cetak menjadi A4 */
+            @page {
+                size: A4;
+                margin: 0;
+                /* Hilangkan margin agar mencetak tepat di tepi halaman */
+            }
+        }
+    </style>
 
     <!-- font awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -33,8 +68,8 @@
 <body class="bg-background">
 
     <!-- main layout -->
-    <div class="penerima " x-data="{popSurat:false, selesai:''}">
-        <div class="bg-white w-3/4 mx-auto py-6 px-6 drop-shadow-lg">
+    <div class="penerima" x-data="{popSurat:false, selesai:''}">
+        <div class="bg-white w-full mx-auto py-6 px-6 drop-shadow-lg">
             <div class="">
                 <!-- <object data="/assets/file/Kontrak Magang - Dola.pdf" width="457" height="550"></object> -->
             </div>
@@ -48,32 +83,32 @@
                     <tr>
                         <td class="text-center pt-10 pb-3">
                             <div class="text-center">Perjanjian Magang</div>
-                            <span class="bg-yellow-300">NO: JVS/HR/INT/02/III/2023</span>
+                            <span>NO: {{ $intern->reference_number }}</span>
                         </td>
                     </tr>
                     <tr>
                         <td class="text-center py-3">
                             <div class="text-center">Antara</div>
-                            <span class="bg-yellow-300">PT. JAVAS TEKNOLOGI INTEGRATOR</span>
+                            <span>PT. JAVAS TEKNOLOGI INTEGRATOR</span>
                         </td>
                     </tr>
                     <tr>
                         <td class="text-center pt-3 pb-10">
                             <div class="text-center">Dengan</div>
-                            <span class="bg-yellow-300">Idola Aji Bayu Darma</span>
+                            <span>{{ $intern->name }}</span>
                         </td>
                     </tr>
                     <tr>
                         <td class="text-center pt-20">
-                            <span class="bg-yellow-300">2023</span>
+                            <span>2024</span>
                         </td>
                     </tr>
                     <tr>
                         <td class="pt-20 leading-relaxed">
                             Perjanjian Magang <span class="font-bold">(“PERJANJIAN”)</span> ini
-                            dibuat dan ditandatangani di <span class="bg-yellow-300">Yogyakarta</span> pada
-                            <span class="bg-yellow-300">Jumat, 01 September</span>Dua Ribu Dua Puluh
-                            Tiga oleh dan antara:
+                            dibuat dan ditandatangani di <span>{{ $intern->location_form }}</span> pada
+                            <span>{{ \Carbon\Carbon::parse($intern->date_created)->translatedFormat('l, j F') }}</span> Dua Ribu Dua Puluh
+                            Empat oleh dan antara:
                         </td>
                     </tr>
                     <tr>
@@ -92,14 +127,14 @@
                                         INTEGRATOR</span> serta selanjutnya disebut sebagai <span class="font-bold">PIHAK PERTAMA</span> dan</div>
                             </div>
                             <div class="pt-3">
-                                <div class="ml-3 py-2">2. <span class="bg-yellow-300">Nama Lengkap :
-                                        Idola AJi Bayu Darma</span></div>
-                                <div class="ml-6 py-2"><span class="bg-yellow-300">Jenis Kelamain :
-                                        Laki-laki</span></div>
-                                <div class="ml-6 py-2"><span class="bg-yellow-300">Alamat domisili :
-                                        Panaragan Jaya, Tulang Bawang Tengah</span></div>
-                                <div class="ml-6 py-2"><span class="bg-yellow-300">Nik :
-                                        1812011912020004</span></div>
+                                <div class="ml-3 py-2">2. <span>Nama Lengkap :
+                                        {{ $intern->name }}</span></div>
+                                <div class="ml-6 py-2"><span>Jenis Kelamain :
+                                        {{ $intern->gender }}</span></div>
+                                <div class="ml-6 py-2"><span class="">Alamat domisili :
+                                        {{ $intern->address }}</span></div>
+                                <div class="ml-6 py-2"><span>Nik :
+                                        {{ $intern->identification_number }}</span></div>
                                 <div class="ml-6 py">yang dalam <span class="font-bold">PERJANJIAN</span> ini
                                     bertindak atas nama
                                     pribadi mengikatkan diri ke dalam <span class="font-bold">PERJANJIAN</span>
@@ -153,8 +188,7 @@
                     <tr>
                         <td><span class="font-bold">PIHAK PERTAMA</span>dengan ini menerima <span class="font-bold">PIHAK KEDUA</span> menjadi peserta dalam program
                             magang yang diselenggarakan oleh <span class="font-bold">PIHAK
-                                PERTAMA</span> sebagai <span class="bg-yellow-300">Front-end Intern
-                                di kantor Yogyakarta.</span></td>
+                                PERTAMA</span> sebagai <span>{{ $intern->intern_position }}</span></td>
                     </tr>
                     <tr>
                         <td class="uppercase text-center font-bold pt-6">Pasal 2</td>
@@ -225,10 +259,10 @@
                                     <li>b. Memberikan masukan atau pertimbangan yang tidak mengikat
                                         kepada<span class="font-bold"> PIHAK PERTAMA</span>atas
                                         seluruh aktivitas selama periode magang berlangsung;</li>
-                                    <li>c. <span class="bg-yellow-300">Menerima pembayaran atas
+                                    <li>c. <span>Menerima pembayaran atas
                                             periode magang yang sebagaimana diatur dalam perjanjian
-                                            ini, yaitu uang makan sejumlah Rp 0,- ditambah uang
-                                            transportasi Rp 0,- dalam 1 hari</span>;</li>
+                                            ini, yaitu uang makan sejumlah Rp {{ number_format($intern->meal_allowance, 0, ',', '.') }},- ditambah uang
+                                            transportasi Rp {{ number_format($intern->transport_allowance, 0, ',', '.') }},- dalam 1 hari</span>;</li>
                                     <li>d. Total pembayaran dalam 1 bulan berdasarkan absensi;</li>
                                     <li>e. Fee Magang akan diberikan dalam bentuk transfer antar
                                         bank setiap tanggal 1 perbulannya;</li>
@@ -289,8 +323,7 @@
                         <td class="uppercase text-center font-bold">jangka waku perjanjian</td>
                     </tr>
                     <tr>
-                        <td>Perjanjian ini berlaku mulai <span class="bg-yellow-300">1 September
-                                2023 - 31 Desember 2023</span>Namun demikian perjanjian menjadi
+                        <td>Perjanjian ini berlaku mulai <span>{{ \Carbon\Carbon::parse($intern->start_date)->translatedFormat('j F Y') }} - {{ \Carbon\Carbon::parse($intern->end_date)->translatedFormat('j F Y') }}</span>Namun demikian perjanjian menjadi
                             tidak berlaku apabila (salah satu dari):</td>
                     </tr>
                     <tr>
@@ -352,16 +385,16 @@
                                 <tr class="w-1/2 text-center h-60">
                                     <td class="font-bold border border-black uppercase p-3">
                                         <div>
-                                            <img src="{{asset('images/ttd-javas.png')}}" alt="" class="w-36 mx-auto">
-                                            <span class="font-bold uppercase">DIDI NUR
-                                                KARTIYONO</span>
+                                            <img src="{{ asset($intern->verificator->signature_image) }}" alt="" class="w-36 mx-auto">
+                                            <span class="font-bold uppercase">
+                                                {{ $intern->verificator->name   }}
+                                            </span>
                                         </div>
                                     </td>
                                     <td class="font-bold border border-black uppercase p-3">
                                         <div>
                                             <img src="" alt="">
-                                            <span class="font-bold bg-yellow-300 uppercase">IDOLA
-                                                AJI BAYU DARMA</span>
+                                            <span class="font-bold uppercase pt-5">{{ $intern->name }}</span>
                                         </div>
                                     </td>
                                 </tr>
@@ -416,13 +449,21 @@
                     </div>
                 </form>
             </div> -->
+            <div class="flex justify-end gap-4">
+                <a href="{{ route('outmail') }}" class="button-print px-4 py-2 border-line border text-md rounded-md text-grey font-semibold">Kembali</a>
+                <button onclick="printPage()" class="button-print px-3 w-40 py-2 border-line border text-md rounded-md text-center bg-primary text-white font-semibold">Cetak</button>
+            </div>
         </div>
 
     </div>
     <!-- main layout end -->
 
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
-
+    <script>
+        function printPage() {
+            window.print();
+        }
+    </script>
     <script src="../node_modules/jquery/dist/jquery.min.js"></script>
     <script src="../node_modules/dropify/dist/js/dropify.min.js"></script>
 

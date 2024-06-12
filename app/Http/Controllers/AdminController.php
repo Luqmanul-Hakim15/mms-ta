@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\Hash;
 use App\Models\Verificator;
 use Illuminate\Http\Request;
 use Illuminate\Support\Carbon;
+use App\Models\InternshipLetter;
 
 class AdminController extends Controller
 {
@@ -18,24 +19,21 @@ class AdminController extends Controller
      */
     public function index()
     {
-
         $data = IncomingLetter::with('user')->get();
         return view('admin.incomingletter', compact('data'));
-
     }
 
     public function addMail()
     {
         Carbon::setLocale('id');
-
         $data['date'] = Carbon::now()->translatedFormat('l, d F Y');
         return view('admin.addincomingmail', $data);
     }
 
     public function createMail()
     {
-        //
-        return view('admin.createmail');
+        $data['verif'] = Verificator::all();
+        return view('admin.createmail', $data);
     }
 
     public function previewemail()
@@ -50,8 +48,10 @@ class AdminController extends Controller
     }
     public function outgoingmails()
     {
-        //
-        return view('admin.outgoingmail');
+        $data['incoming'] = IncomingLetter::count();
+        $data['outgoing'] = InternshipLetter::count();
+        $data['letter'] = InternshipLetter::with('verificator')->get();
+        return view('admin.outgoingmail', $data);
     }
 
     public function templatecategories()
@@ -146,9 +146,12 @@ class AdminController extends Controller
     {
         return view('admin.addAccount');
     }
-    public function internLetter()
+    public function internLetter($id)
     {
-        return view('surat.intern');
+        $data['intern'] = InternshipLetter::findOrFail($id);
+        $data['verif'] = InternshipLetter::with('verificator')->findOrFail($id);
+        Carbon::setLocale('id');
+        return view('surat.intern', $data);
     }
     /**
      * Show the form for creating a new resource.
