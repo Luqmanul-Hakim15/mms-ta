@@ -19,8 +19,9 @@ class AdminController extends Controller
      */
     public function index()
     {
-        $data = IncomingLetter::with('user')->get();
-        return view('admin.incomingletter', compact('data'));
+        $data['incoming'] = IncomingLetter::count();
+        $data['user'] = IncomingLetter::with('user')->get();
+        return view('admin.incomingletter', $data);
     }
 
     public function addMail()
@@ -48,7 +49,6 @@ class AdminController extends Controller
     }
     public function outgoingmails()
     {
-        $data['incoming'] = IncomingLetter::count();
         $data['outgoing'] = InternshipLetter::count();
         $data['letter'] = InternshipLetter::with('verificator')->get();
         return view('admin.outgoingmail', $data);
