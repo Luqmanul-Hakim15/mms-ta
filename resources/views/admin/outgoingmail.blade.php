@@ -3,7 +3,7 @@
 @section('content')
 <x-header>Surat Keluar</x-header>
 
-<div class="grid grid-cols-3 gap-6 mb-10">
+<div class="grid grid-cols-2 gap-6 mb-10">
     {{-- surat terkirim start  --}}
     <div class="flex items-center justify-between shadow-md bg-white px-6 py-4 rounded-xl">
         <div class="text-4xl font-bold">
@@ -15,17 +15,6 @@
         </div>
     </div>
     {{-- surat terkirim end  --}}
-    {{-- kategori start  --}}
-    <div class="flex items-center justify-between shadow-md bg-white px-6 py-4 rounded-xl">
-        <div class="text-4xl font-bold">
-            <div>{{ $incoming }}</div>
-            <div class="text-xs font-normal mt-2">Surat Masuk</div>
-        </div>
-        <div class="bg-[#FFF1F3] rounded-full w-12 h-12 flex items-center justify-center">
-            <i class="ph-fill ph-tray text-3xl text-primary"></i>
-        </div>
-    </div>
-    {{-- kategori end  --}}
     {{-- kategori start  --}}
     <div class="flex items-center justify-between shadow-md bg-white px-6 py-4 rounded-xl">
         <div class="text-4xl font-bold">
@@ -58,7 +47,7 @@
                 <td class="border border-neutral-100 px-6 py-3 text-left">{{ $l->name }}</td>
                 <td class="border border-neutral-100 px-6 py-3 text-left">Magang</td>
                 <td class="border border-neutral-100 p-2 text-left flex justify-center items-center gap-3">
-                    <a href="{{ route('surat.internship', $l->id) }}" class="flex justify-center items-center bg-red-600 text-white p-2 rounded-lg w-8 h-8 text-center"><i class="fa-solid fa-eye"></i></a>
+                    <a href="{{ route('surat.internship', $l->id) }}" class="flex justify-center items-center bg-greenSpot text-white p-2 rounded-lg w-8 h-8 text-center"><i class="fa-solid fa-eye"></i></a>
                     <form action="{{ route('internLetter.destroy', $l->id) }}" method="POST" class="m-0">
                         @csrf
                         @method('DELETE')
