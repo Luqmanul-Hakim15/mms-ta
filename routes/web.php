@@ -27,6 +27,7 @@ Route::get('/', function () {
     return redirect('/login');
 });
 Route::get('register', [AdminController::class, 'showRegistrationForm'])->name('register');
+Route::get('/bast', [AdminController::class, 'bastLetter'])->name('surat.bast');
 
 Route::post('/login-post', [AuthController::class, 'login'])->name('login-post');
 Route::post('/register-post', [AuthController::class, 'register'])->name('register-post');
@@ -69,10 +70,9 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('/account-profile', [AdminController::class, 'profil'])->name('admin.profil');
     Route::post('/profile/update', [AdminController::class, 'updatedProfil'])->name('profile.update');
 
+
     Route::get('/internLetter/{id}', [AdminController::class, 'internLetter'])->name('surat.internship');
     Route::post('/intern-form', [OutgoingLetterController::class, 'store'])->name('form.store');
-    // Route::get('internLetter/{id}/download', [OutgoingLetterController::class, 'download'])->name('internLetter.download');
-    // Route::get('internLetter/{id}', [OutgoingLetterController::class, 'show'])->name('internLetter.show');
     Route::delete('internLetter/{id}', [OutgoingLetterController::class, 'destroy'])->name('internLetter.destroy');
 
 

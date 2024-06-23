@@ -23,7 +23,7 @@ class AuthController extends Controller
         if (Auth::attempt($data)) {
             return redirect()->route('surat-masuk');
         } else {
-            return redirect()->route('login')->with('error', 'Email atau password salah');
+            return redirect()->route('login')->with('message', 'Email atau password salah')->with('type','error');
         };
     }
     public function register(Request $request) {

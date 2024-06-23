@@ -55,9 +55,9 @@
                     <option value="BAST">Berita Acara Serah Terima</option>
                 </select>
                 {{-- form magang start  --}}
-                <form action="{{ route('form.store') }}" method="POST" enctype="multipart/form-data">
-                    @csrf
-                    <div class="my-3" x-show="isOpen && selectedOption === 'Magang'" x-ref="Magang" x-transition:enter="transition ease-out duration-300" x-transition:enter-start="opacity-0 transform -translate-y-2" x-transition:enter-end="opacity-100 transform translate-y-0" x-transition:leave="transition ease-in duration-300" x-transition:leave-start="opacity-100 transform translate-y-0" x-transition:leave-end="opacity-0 transform -translate-y-2">
+                <div class="my-3" x-show="isOpen && selectedOption === 'Magang'" x-ref="Magang" x-transition:enter="transition ease-out duration-300" x-transition:enter-start="opacity-0 transform -translate-y-2" x-transition:enter-end="opacity-100 transform translate-y-0" x-transition:leave="transition ease-in duration-300" x-transition:leave-start="opacity-100 transform translate-y-0" x-transition:leave-end="opacity-0 transform -translate-y-2">
+                    <form action="{{ route('form.store') }}" method="POST" enctype="multipart/form-data">
+                        @csrf
                         <div class="mb-3">
                             <label for="nomorSurat">Nomor Surat</label>
                             <input type="text" name="nomorSurat" id="nomorSurat" class="w-full py-3 px-4 mt-3 border-line border rounded-md focus:outline-spotSubtle">
@@ -149,6 +149,109 @@
                                 <input type="date" name="tanggalBerakhir" id="tanggalBerakhir" class="w-full py-3 px-4 mt-3 border-line border rounded-md focus:outline-spotSubtle">
                             </div>
                         </div>
+                        <div class="mb-6">
+                            <label for="penerima">Pilih Verifikator</label>
+                            <select name="penerima" id="penerima" class="w-full py-3 px-4 mt-3 border-line border rounded-md focus:outline-spotSubtle">
+                                <option value="" selected disabled>Pilih Verifikator</option>
+                                @foreach($verif as $v)
+                                <option value="{{ $v->id }}">{{ $v->name }}</option>
+                                @endforeach
+                            </select>
+                        </div>
+                        <div class="flex justify-end gap-4">
+                            <a href="{{ route('outmail') }}" class="px-4 py-2 border-line border text-md rounded-md text-grey font-semibold">Kembali</a>
+                            <button type="submit" class="px-3 w-40 py-2 border-line border text-md rounded-md text-center bg-primary text-white font-semibold">Preview</button>
+                        </div>
+                    </form>
+                </div>
+                {{-- form magang end  --}}
+                {{-- form spk start  --}}
+                <div class="mt-3" x-show="isOpen && selectedOption === 'SPK'" x-ref="SPK" x-transition:enter="transition ease-out duration-300" x-transition:enter-start="opacity-0 transform -translate-y-2" x-transition:enter-end="opacity-100 transform translate-y-0" x-transition:leave="transition ease-in duration-300" x-transition:leave-start="opacity-100 transform translate-y-0" x-transition:leave-end="opacity-0 transform -translate-y-2">
+                    <div class="mb-3">
+                        <label for="nomorSurat">Nomor Surat</label>
+                        <input type="text" name="nomorSurat" id="nomorSurat" class="w-full py-3 px-4 mt-3 border-line border rounded-md focus:outline-spotSubtle">
+                    </div>
+                    <div class="mb-3 flex gap-6">
+                        <div class="w-full">
+                            <label for="namaPihakPertama">Nama pihak pertama</label>
+                            <input type="text" name="namaPihakPertama" id="namaPihakPertama" value="PT. Javas Teknologi Integrator" class="w-full py-3 px-4 mt-3 border-line border rounded-md focus:outline-spotSubtle">
+                        </div>
+                        <div class="w-full">
+                            <label for="namaPihakKedua">Nama pihak pertama</label>
+                            <input type="text" name="namaPihakKedua" id="namaPihakKedua" class="w-full py-3 px-4 mt-3 border-line border rounded-md focus:outline-spotSubtle">
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="Nik">Nomor Induk Kepundudukan</label>
+                        <input type="text" name="Nik" id="Nik" class="w-full py-3 px-4 mt-3 border-line border rounded-md focus:outline-spotSubtle">
+                    </div>
+                    <div class="mb-3">
+                        <label for="kelamin">Jenis kelamin</label>
+                        <select name="kelamin" id="kelamin" class="w-full py-3 px-4 mt-3 border-line border rounded-md focus:outline-spotSubtle aria-pressed:outline-blue-500">
+                            <option value="Laki-laki">Laki-laki</option>
+                            <option value="Wanita">Wanita</option>
+                        </select>
+                    </div>
+                    <div class="mb-3 flex gap-6">
+                        <div class="w-full">
+                            <label for="tempatDibuat">Tempat dibuat</label>
+                            <select name="tempatDibuat" id="tempatDibuat" class="w-full py-3 px-4 mt-3 border-line border rounded-md focus:outline-spotSubtle aria-pressed:outline-blue-500">
+                                <option value="Yogyakarta">Yogyakarta</option>
+                                <option value="Jakarta">Jakarta</option>
+                            </select>
+                        </div>
+                        <div class="w-full">
+                            <label for="tanggalDibuat">Tanggal dibuat</label>
+                            <input type="date" name="tanggalDibuat" id="tanggalDibuat" class="w-full py-3 px-4 mt-3 border-line border rounded-md focus:outline-spotSubtle">
+                        </div>
+                    </div>
+                    <div class="mb-3 flex gap-6">
+                        <div class="w-full">
+                            <label for="posisiKerja">Posisi Kerja</label>
+                            <select name="posisiKerja" id="posisiKerja" class="w-full py-3 px-4 mt-3 border-line border rounded-md focus:outline-spotSubtle aria-pressed:outline-blue-500">
+                                <option value="Yogyakarta">Yogyakarta</option>
+                                <option value="Jakarta">Jakarta</option>
+                            </select>
+                        </div>
+                        <div class="w-full">
+                            <label for="Penempatan">Penempatan</label>
+                            <input type="text" name="Penempatan`" id="Penempatan`" class="w-full py-3 px-4 mt-3 border-line border rounded-md focus:outline-spotSubtle">
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <div class="font-semibold text-2xl mb-3">Pembayaran</div>
+                        <div class="mb-3">
+                            <input type="checkbox" name="pembayaran" id="pembayaran" class="mr-2">
+                            <label for="pembayaran">Tidak menerima pembayaran</label>
+                        </div>
+                        <div class="mb-3 flex gap-6">
+                            <div class="w-full">
+                                <label for="tanggalDibuat">Uang makan</label>
+                                <input type="text" name="tanggalDibuat" id="tanggalDibuat" class="w-full py-3 px-4 mt-3 border-line border rounded-md focus:outline-spotSubtle" placeholder="0">
+                            </div>
+                            <div class="w-full">
+                                <label for="tanggalDibuat">Uang transportasi</label>
+                                <input type="text" name="tanggalDibuat" id="tanggalDibuat" class="w-full py-3 px-4 mt-3 border-line border rounded-md focus:outline-spotSubtle" placeholder="0">
+                            </div>
+                            <div class="w-full">
+                                <label for="tempatDibuat">Dibayar dalam</label>
+                                <select name="tempatDibuat" id="tempatDibuat" class="w-full py-3 px-4 mt-3 border-line border rounded-md focus:outline-spotSubtle aria-pressed:outline-blue-500">
+                                    <option value="1">1 Hari</option>
+                                    <option value="2">1 Minggu</option>
+                                    <option value="3">1 Bulan</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mb-3 flex gap-6">
+                        <div class="w-full">
+                            <label for="tanggalDimulai">Tanggal dimulai</label>
+                            <input type="date" name="tanggalDimulai" id="tanggalDimulai" class="w-full py-3 px-4 mt-3 border-line border rounded-md focus:outline-spotSubtle">
+                        </div>
+                        <div class="w-full">
+                            <label for="tanggalBerakhir">Tanggal berakhir</label>
+                            <input type="date" name="tanggalBerakhir" id="tanggalBerakhir" class="w-full py-3 px-4 mt-3 border-line border rounded-md focus:outline-spotSubtle">
+                        </div>
                     </div>
                     <div class="mb-6">
                         <label for="penerima">Pilih Verifikator</label>
@@ -159,104 +262,9 @@
                             @endforeach
                         </select>
                     </div>
-                    <div class="flex justify-end gap-4">
-                        <a href="{{ route('outmail') }}" class="px-4 py-2 border-line border text-md rounded-md text-grey font-semibold">Kembali</a>
-                        <button type="submit" class="px-3 w-40 py-2 border-line border text-md rounded-md text-center bg-primary text-white font-semibold">Preview</button>
-                    </div>
-                </form>
-                {{-- form magang end  --}}
-                {{-- form spk start  --}}
-                <form>
-                    <div class="mt-3" x-show="isOpen && selectedOption === 'SPK'" x-ref="SPK" x-transition:enter="transition ease-out duration-300" x-transition:enter-start="opacity-0 transform -translate-y-2" x-transition:enter-end="opacity-100 transform translate-y-0" x-transition:leave="transition ease-in duration-300" x-transition:leave-start="opacity-100 transform translate-y-0" x-transition:leave-end="opacity-0 transform -translate-y-2">
-                        <div class="mb-3">
-                            <label for="nomorSurat">Nomor Surat</label>
-                            <input type="text" name="nomorSurat" id="nomorSurat" class="w-full py-3 px-4 mt-3 border-line border rounded-md focus:outline-spotSubtle">
-                        </div>
-                        <div class="mb-3 flex gap-6">
-                            <div class="w-full">
-                                <label for="namaPihakPertama">Nama pihak pertama</label>
-                                <input type="text" name="namaPihakPertama" id="namaPihakPertama" value="PT. Javas Teknologi Integrator" class="w-full py-3 px-4 mt-3 border-line border rounded-md focus:outline-spotSubtle">
-                            </div>
-                            <div class="w-full">
-                                <label for="namaPihakKedua">Nama pihak pertama</label>
-                                <input type="text" name="namaPihakKedua" id="namaPihakKedua" class="w-full py-3 px-4 mt-3 border-line border rounded-md focus:outline-spotSubtle">
-                            </div>
-                        </div>
-                        <div class="mb-3">
-                            <label for="Nik">Nomor Induk Kepundudukan</label>
-                            <input type="text" name="Nik" id="Nik" class="w-full py-3 px-4 mt-3 border-line border rounded-md focus:outline-spotSubtle">
-                        </div>
-                        <div class="mb-3">
-                            <label for="kelamin">Jenis kelamin</label>
-                            <select name="kelamin" id="kelamin" class="w-full py-3 px-4 mt-3 border-line border rounded-md focus:outline-spotSubtle aria-pressed:outline-blue-500">
-                                <option value="Laki-laki">Laki-laki</option>
-                                <option value="Wanita">Wanita</option>
-                            </select>
-                        </div>
-                        <div class="mb-3 flex gap-6">
-                            <div class="w-full">
-                                <label for="tempatDibuat">Tempat dibuat</label>
-                                <select name="tempatDibuat" id="tempatDibuat" class="w-full py-3 px-4 mt-3 border-line border rounded-md focus:outline-spotSubtle aria-pressed:outline-blue-500">
-                                    <option value="Yogyakarta">Yogyakarta</option>
-                                    <option value="Jakarta">Jakarta</option>
-                                </select>
-                            </div>
-                            <div class="w-full">
-                                <label for="tanggalDibuat">Tanggal dibuat</label>
-                                <input type="date" name="tanggalDibuat" id="tanggalDibuat" class="w-full py-3 px-4 mt-3 border-line border rounded-md focus:outline-spotSubtle">
-                            </div>
-                        </div>
-                        <div class="mb-3 flex gap-6">
-                            <div class="w-full">
-                                <label for="posisiKerja">Posisi Kerja</label>
-                                <select name="posisiKerja" id="posisiKerja" class="w-full py-3 px-4 mt-3 border-line border rounded-md focus:outline-spotSubtle aria-pressed:outline-blue-500">
-                                    <option value="Yogyakarta">Yogyakarta</option>
-                                    <option value="Jakarta">Jakarta</option>
-                                </select>
-                            </div>
-                            <div class="w-full">
-                                <label for="Penempatan">Penempatan</label>
-                                <input type="text" name="Penempatan`" id="Penempatan`" class="w-full py-3 px-4 mt-3 border-line border rounded-md focus:outline-spotSubtle">
-                            </div>
-                        </div>
-                        <div class="mb-3">
-                            <div class="font-semibold text-2xl mb-3">Pembayaran</div>
-                            <div class="mb-3">
-                                <input type="checkbox" name="pembayaran" id="pembayaran" class="mr-2">
-                                <label for="pembayaran">Tidak menerima pembayaran</label>
-                            </div>
-                            <div class="mb-3 flex gap-6">
-                                <div class="w-full">
-                                    <label for="tanggalDibuat">Uang makan</label>
-                                    <input type="text" name="tanggalDibuat" id="tanggalDibuat" class="w-full py-3 px-4 mt-3 border-line border rounded-md focus:outline-spotSubtle" placeholder="0">
-                                </div>
-                                <div class="w-full">
-                                    <label for="tanggalDibuat">Uang transportasi</label>
-                                    <input type="text" name="tanggalDibuat" id="tanggalDibuat" class="w-full py-3 px-4 mt-3 border-line border rounded-md focus:outline-spotSubtle" placeholder="0">
-                                </div>
-                                <div class="w-full">
-                                    <label for="tempatDibuat">Dibayar dalam</label>
-                                    <select name="tempatDibuat" id="tempatDibuat" class="w-full py-3 px-4 mt-3 border-line border rounded-md focus:outline-spotSubtle aria-pressed:outline-blue-500">
-                                        <option value="1">1 Hari</option>
-                                        <option value="2">1 Minggu</option>
-                                        <option value="3">1 Bulan</option>
-                                    </select>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="mb-3 flex gap-6">
-                            <div class="w-full">
-                                <label for="tanggalDimulai">Tanggal dimulai</label>
-                                <input type="date" name="tanggalDimulai" id="tanggalDimulai" class="w-full py-3 px-4 mt-3 border-line border rounded-md focus:outline-spotSubtle">
-                            </div>
-                            <div class="w-full">
-                                <label for="tanggalBerakhir">Tanggal berakhir</label>
-                                <input type="date" name="tanggalBerakhir" id="tanggalBerakhir" class="w-full py-3 px-4 mt-3 border-line border rounded-md focus:outline-spotSubtle">
-                            </div>
-                        </div>
-                    </div>
-                    {{-- form spk end  --}}
-                    <!-- <div class="mb-6">
+                </div>
+                {{-- form spk end  --}}
+                <!-- <div class="mb-6">
                         <label for="penerima">Pilih Verifikator</label>
                         <select name="penerima" id="penerima" class="w-full py-3 px-4 mt-3 border-line border rounded-md focus:outline-spotSubtle" placeholder="isikan perihal surat anda">
                             <option value="pilih penerima" selected disabled>pilih Verifikator</option>
@@ -274,8 +282,6 @@
                         <a href="{{ route('outmail') }}" class="px-4 py-2 border-line border text-md rounded-md text-grey font-semibold">Kembali</a>
                         <a id="buttonPreview" href="{{ route('premail') }}" class="px-3 w-40 py-2 border-line border text-md rounded-md text-center bg-primary text-white font-semibold">Preview</a>
                     </div> -->
-                </form>
-
             </div>
         </div>
     </div>

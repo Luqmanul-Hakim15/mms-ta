@@ -12,25 +12,25 @@ class OutgoingLetterController extends Controller
 {
     public function store(Request $request)
     {
-        // $request->validate([
-        //     'nomorSurat' => 'required|string|max:255',
-        //     'namaPihakPertama' => 'required|string|max:255',
-        //     'namaPihakKedua' => 'required|string|max:255',
-        //     'Nik' => 'required|string|max:16',
-        //     'alamat' => 'required|string',
-        //     'kelamin' => 'required|string',
-        //     'tempatDibuat' => 'required|string',
-        //     'tanggalDibuat' => 'required',
-        //     'posisiKerja' => 'required',
-        //     'Penempatan' => 'required',
-        //     'pembayaran' => 'nullable',
-        //     'uangMakan' => 'nullable',
-        //     'uangTransportasi' => 'nullable',
-        //     'dibayarDalam' => 'required',
-        //     'tanggalDimulai' => 'required',
-        //     'tanggalBerakhir' => 'required',
-        //     'penerima' => 'required|integer|exists:verificators,id'
-        // ]);
+        $request->validate([
+            'nomorSurat' => 'required|string|max:255|unique:internship_letters,reference_number',
+            // 'namaPihakPertama' => 'required|string|max:255',
+            // 'namaPihakKedua' => 'required|string|max:255',
+            // 'Nik' => 'required|string|max:16',
+            // 'alamat' => 'required|string',
+            // 'kelamin' => 'required|string',
+            // 'tempatDibuat' => 'required|string',
+            // 'tanggalDibuat' => 'required',
+            // 'posisiKerja' => 'required',
+            // 'Penempatan' => 'required',
+            // 'pembayaran' => 'nullable',
+            // 'uangMakan' => 'nullable',
+            // 'uangTransportasi' => 'nullable',
+            // 'dibayarDalam' => 'required',
+            // 'tanggalDimulai' => 'required',
+            // 'tanggalBerakhir' => 'required',
+            // 'penerima' => 'required|integer|exists:verificators,id'
+        ]);
 
         $data = [
             'user_id' => Auth::id(),  // Assuming the user is authenticated
