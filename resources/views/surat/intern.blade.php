@@ -387,7 +387,7 @@
                                         <div>
                                             <img src="{{ asset($intern->verificator->signature_image) }}" alt="" class="w-36 mx-auto">
                                             <span class="font-bold uppercase">
-                                                {{ $intern->verificator->name   }}
+                                                {{ $intern->verificator->name }}
                                             </span>
                                         </div>
                                     </td>
@@ -403,52 +403,6 @@
                     </tr>
                 </table>
             </div>
-            <!-- <div class="py-6">
-                <form action="">
-                    <!-- <div class="flex space-x-3 items-center mb-6">
-                        <input type="checkbox" name="ttdPengesahan" id="ttdPengesahan"
-                            class="w-5 h-5 accent-primary">
-                        <label for="ttdPengesahan" class="font-medium">Silahkan tandai kotak jika ingin tanda
-                            tangan</label>
-                    </div> -->
-            <!-- <div>
-                        <label for="" class="block">
-                            <span class="sr-only">choose file</span>
-                            <input type="file" name="" id="" class="block w-full file:bg-primary file:bg-opacity-5 hover:file:bg-opacity-10 file:px-4 file:py-2 file:border-0 file:font-semibold file:text-primary file:rounded-xl file:mr-3 file:cursor-pointer cursor-pointer">
-                        </label>
-                    </div> -->
-            <!--<div class="py-6 flex justify-center">
-                        <button type="button" @click="popSurat=true" x-model="selesai"
-                            class="px-6 py-3 flex gap-3 items-center justify-center bg-primary font-semibold text-white rounded-xl"><i
-                                class="fa-solid fa-file-signature"></i>Verifikasi Surat</button>
-                    </div>
-                    <div x-show="popSurat">
-                        <div class="absolute top-0 left-0 right-0 bottom-0 inset-0 bg-gray-500 opacity-75"></div>
-                    </div>
-
-                    <div x-show="popSurat" x-transition.origin.bottom.duration.900ms
-                        class="absolute left-0 right-0 flex justify-center bottom-20 ">
-                        <div x-show="popSurat" class="w-1/2 p-6 border border-line bg-white rounded-lg">
-                            <div class="flex justify-end items-center pb-4">
-                                <button type="button" @click="popSurat=false"><i
-                                        class="fas fa-xmark fa-xl"></i></button>
-                            </div>
-                            <h2 class="text-2xl font-bold mb-3 text-center text-primary">Tanda Tangan Penerima</h2>
-                            <div class="text-black opacity-50 text-center mb-6">Upload Tanda Tangan anda di sini
-                                untuk
-                                mengesahkan surat kerjasama anda dengan kami</div>
-                            <div>
-                                <form action="">
-                                    <input type="file" name="verifTtd" id="verifTtd">
-                                    <div class="mt-5 flex justify-center">
-                                        <a href="share.html" type="button" class="px-6 w-1/2 py-3 text-center flex gap-3 items-center justify-center bg-primary font-semibold text-white rounded-xl">Unggah Tanda Tangan</a>
-                                    </div>
-                                </form>
-                            </div>
-                        </div>
-                    </div>
-                </form>
-            </div> -->
             <div class="flex justify-end gap-4">
                 <a href="{{ route('outmail') }}" class="button-print px-4 py-2 border-line border text-md rounded-md text-grey font-semibold">Kembali</a>
                 <button onclick="printPage()" class="button-print px-3 w-40 py-2 border-line border text-md rounded-md text-center bg-primary text-white font-semibold">Cetak</button>

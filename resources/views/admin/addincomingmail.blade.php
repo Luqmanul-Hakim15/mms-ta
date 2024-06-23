@@ -65,18 +65,18 @@
                     message: '<div class="dropify-message"><span class="file-icon" /> <p style="font-size: 24px;">Drag and drop a file here or click</p></div>',
                 }
             });
-            {{--  $('.tanggal').pickadate({
-                labelMonthNext: 'Bulan Selanjutnya',
-                labelMonthPrev: 'Bulan Sebelumnya',
-                labelMonthSelect: 'Pilih Bulan',
-                labelYearSelect: 'Pilih Tahun',
-                selectMonths: true,
-                selectYears: true,
-                format: 'dddd, dd mmm yyyy',
-                formatSubmit: 'yyyy/mm/dd',
-                hiddenPrefix: 'prefix__',
-                hiddenSuffix: '__suffix'
-            });  --}}
+            // {{--  $('.tanggal').pickadate({
+            //     labelMonthNext: 'Bulan Selanjutnya',
+            //     labelMonthPrev: 'Bulan Sebelumnya',
+            //     labelMonthSelect: 'Pilih Bulan',
+            //     labelYearSelect: 'Pilih Tahun',
+            //     selectMonths: true,
+            //     selectYears: true,
+            //     format: 'dddd, dd mmm yyyy',
+            //     formatSubmit: 'yyyy/mm/dd',
+            //     hiddenPrefix: 'prefix__',
+            //     hiddenSuffix: '__suffix'
+            // });  --}}
         })
     </script>
 @endpush
