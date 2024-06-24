@@ -53,13 +53,13 @@
         <tbody>
             @foreach($user as $index => $u)
             <tr>
-                <td class="text-center">{{ $index + 1 }}</td>
-                <td>
+                <td class="p-3 text-center">{{ $index + 1 }}</td>
+                <td class="p-3">
                     {{ $u->file_name }}
                 </td>
-                <td>{{ $u->tanggal }}</td>
-                <td>{{ $u->user->firstname . ' ' . $u->user->lastname }}</td>
-                <td class="flex gap-2 text-white justify-center items-center">
+                <td class="p-3">{{ $u->tanggal }}</td>
+                <td class="p-3">{{ $u->user->firstname . ' ' . $u->user->lastname }}</td>
+                <td class="flex gap-2 p-3 text-white justify-center items-center">
                     <a href="" class="flex justify-center items-center bg-teal-500 p-2 rounded-lg w-8 h-8 text-center">
                         <i class="fa-solid fa-pen fa-sm"></i>
                     </a>
@@ -110,7 +110,7 @@
 </div> --}}
 <!-- proses unggah end -->
 
-{{-- @push('script')
+@push('script')
 <script>
     $(document).ready(function() {
         $('#closeProgres').click(function() {
@@ -125,4 +125,4 @@
         })
     })
 </script>
-@endpush --}}
+@endpush
