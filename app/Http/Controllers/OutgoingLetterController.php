@@ -41,7 +41,7 @@ class OutgoingLetterController extends Controller
             'location_from' => $request->input('tempatDibuat'),
             'intern_position' => $request->input('Penempatan'),
             'address' => $request->input('alamat'),
-            'paid' => $request->input('pembayaran', false),
+            'paid' => $request->has('pembayaran') ? 1 : 0,
             'meal_allowance' => $request->input('uangMakan', 0),
             'transport_allowance' => $request->input('uangTransportasi', 0),
             'payment_time' => $request->input('dibayarDalam'),
