@@ -4,8 +4,13 @@
     <!-- main layout -->
     <div class="ganti-password">
         <div class=" pb-10">
-
-            <div class=" rounded-xl   ">
+            @if(session('success'))
+                <x-toast-alert :type="'success'" :message="session('success')" />
+            @endif
+            @if($errors->any())
+                <x-toast-alert :type="'error'" :message="$errors->first()" />
+            @endif
+            <div class=" rounded-xl">
                 <div>
                     <form action="{{ route('profile.update') }}" method="POST" enctype="multipart/form-data">
                         @csrf

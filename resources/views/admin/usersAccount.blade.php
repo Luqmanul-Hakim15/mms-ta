@@ -4,9 +4,7 @@
     <!-- main layout -->
     <div class="ganti-password">
         <div class=" py-6 ">
-
             <div class="">
-
                 <div class="mb-10 flex justify-between items-center">
                     {{--  <h1 class="text-xl font-semibold"></h1>  --}}
                     <div>

@@ -17,10 +17,28 @@
     <script src="https://unpkg.com/@phosphor-icons/web"></script>
     <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
     <script src="//unpkg.com/alpinejs" defer></script>
+    <style>
+        .toast-alert {
+            position: fixed;
+            top: 1rem;
+            right: 1rem;
+            z-index: 9999;
+            display: flex;
+            align-items: center;
+            padding: 1rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+    </style>
 </head>
 
 <body class="">
     {{-- Section Login Start --}}
+    @if(session('message'))
+        @php
+            $type = session('type', 'info');
+        @endphp
+        <x-toast-alert :type="$type" :message="session('message')" />
+    @endif
     <section class="flex  w-full items-center h-screen">
         {{-- Left Section Start  --}}
         <div class=" flex-1 h-full bg-spotSubtle items-center justify-center flex">
@@ -40,12 +58,6 @@
                         <p class="text-sm opacity-50 font-light ">Silahkan masuk untuk mengelola dan dokumentasi surat</p>
                     </div>
                     <div class="pt-10">
-                        @if(session('message'))
-                            @php
-                                $type = session('type', 'info');
-                            @endphp
-                            @include('components.alerts', ['type' => $type, 'slot' => session('message')])
-                        @endif
                         <form action="{{ route('login-post') }}" method="POST">
                             @csrf
                             <div class="mb-5">
