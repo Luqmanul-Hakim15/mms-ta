@@ -29,7 +29,6 @@
                                     <button @click="headerEdit=true; headerId={{ $d->id }};" class="bg-greenSpot rounded-full w-10 h-10 text-white flex justify-center items-center hover:bg-opacity-50 p-2"><i class="fa fa-pen"></i></button>
                                     <form action="{{ route('delete.header', $d->id) }}" method="POST" onsubmit="return confirm('Are you sure you want to delete this item?');">
                                         @csrf
-                                        @method('DELETE')
                                         <button type="submit" class="bg-primary rounded-full w-10 h-10 text-white flex justify-center items-center p-2 hover:bg-opacity-50"><i class="fa fa-trash"></i></button>
                                     </form>
                                 </div>

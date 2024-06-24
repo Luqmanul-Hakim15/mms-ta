@@ -24,18 +24,22 @@ class IncomingLetterController extends Controller
         $nameMail = str_replace(' ', '-', $request->fileName);
         $file = $date . '-' . $nameMail . '.' . $extension;
 
-        $request->file('fileInput')->move(public_path('incomingLetters'), $file);
+        try {
+            $request->file('fileInput')->move(public_path('incomingLetters'), $file);
 
-        $data = [
-            'user_id' => Auth::id(),
-            'tanggal' => $request->tanggal,
-            'file_name' => $request->fileName,
-            'file' => 'incomingLetters/' . $file,
-        ];
+            $data = [
+                'user_id' => Auth::id(),
+                'tanggal' => $request->tanggal,
+                'file_name' => $request->fileName,
+                'file' => 'incomingLetters/' . $file,
+            ];
 
-        IncomingLetter::create($data);
+            IncomingLetter::create($data);
 
-        return redirect()->route('surat-masuk')->with('success', 'Incoming Letter added successfully.');
+            return redirect()->route('surat-masuk')->with('success', 'Surat Masuk berhasil ditambahkan.');
+        } catch (\Exception $e) {
+            return redirect()->route('addmail')->withErrors(['fileInput' => 'Gagal Upload File, Silahkan Coba Lagi.']);
+        }
     }
     public function delete($id)
     {
