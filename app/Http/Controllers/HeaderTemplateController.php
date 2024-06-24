@@ -88,9 +88,13 @@ class HeaderTemplateController extends Controller
             }
 
             // Simpan file baru
-            $file = $request->file('templateHeader');
-            $fileName = time() . '-' . $file->getClientOriginalName();
-            $file->storeAs('images/headers', $fileName, 'public');
+            $extension = $request->file('templateHeader')->getClientOriginalExtension();
+
+            $date = Carbon::now()->format('Y-m-d');
+            $nameHeader = str_replace(' ', '-', $request->name);
+            $fileName = $date . '-' . $nameHeader . '.' . $extension;
+
+            $request->file('templateHeader')->move(public_path('images/headers'), $fileName);
 
             // Update path file di database
             $header->image = 'images/headers/' . $fileName;
@@ -100,6 +104,6 @@ class HeaderTemplateController extends Controller
         $header->save();
 
         // Redirect kembali dengan pesan sukses
-        return redirect()->back()->with('status', 'Header updated successfully!');
+        return redirect()->back()->with('success', 'Header updated successfully!');
     }
 }
