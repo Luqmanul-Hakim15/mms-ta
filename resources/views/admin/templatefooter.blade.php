@@ -2,7 +2,7 @@
 
 @section('content')
 <x-header>Template Footer</x-header>
-<div x-data="{ footerAdd: false, footerTem: null, footerEdit: false, editFooter: null }">
+<div x-data="{ footerAdd: false, footerTem: null, footerEdit:false, footerId: null }">
     <div class="kategori">
         <div class="rounded-xl drop-shadow-lg">
             <div class="flex justify-end pb-6">
@@ -24,7 +24,7 @@
                                     </button>
                                 </form>
                                 @endif
-                                <button @click="footerEdit=true; editFooter={{ $d }}" class="bg-greenSpot rounded-full w-10 h-10 text-white flex justify-center items-center hover:bg-opacity-50 p-2"><i class="fa fa-pen"></i></button>
+                                <button @click="footerEdit=true; footerId={{ $d->id }};" class="bg-greenSpot rounded-full w-10 h-10 text-white flex justify-center items-center hover:bg-opacity-50 p-2"><i class="fa fa-pen"></i></button>
                                 <form action="{{ route('delete.footer', $d->id) }}" method="POST" onsubmit="return confirm('Are you sure you want to delete this item?');">
                                     @csrf
                                     <button type="submit" class="bg-primary rounded-full w-10 h-10 text-white flex justify-center items-center p-2 hover:bg-opacity-50"><i class="fa fa-trash"></i></button>
@@ -86,21 +86,23 @@
             </form>
         </div>
     </div>
-    <div x-show="footerEdit" x-transition>
-        <div class="fixed top-0 left-0 right-0 bottom-0 inset-0 bg-gray-500 opacity-75 z-10"></div>
-        <div x-show="footerEdit" x-transition.origin.bottom.duration.500ms class="w-1/2 bg-white rounded-xl p-6 absolute mx-auto top-[100px] left-1/2 transform -translate-x-1/2 z-20 drop-shadow-md">
+    <div>
+        <div x-show="footerEdit" x-transition>
+            <div class="fixed inset-0 bg-gray-500 opacity-75 z-10"></div>
+        </div>
+        <div x-show="footerEdit" x-transition.origin.bottom.duration.500ms id="editKop" class="w-1/2 bg-white rounded-xl p-6 absolute top-[100px] left-[350px] z-20 mx-auto drop-shadow-md">
             <div class="flex justify-between items-start pb-6">
-                <div class="flex flex-col">
+                <div class="flex flex-col ">
                     <h3 class="text-xl font-bold text-primary">Edit Footer</h3>
-                    <p class="text-sm opacity-50 w-3/4">Edit footer surat anda agar bervariasi ketika memakainya nanti.</p>
+                    <p class="text-sm opacity-50 w-3/4">Edit kop surat anda disini</p>
                 </div>
                 <button @click="footerEdit=false"><i class="fas fa-xmark fa-xl"></i></button>
             </div>
-            <form action="'{{ route('footer-update', '') }}/' + footerId" method="POST" enctype="multipart/form-data">
+            <form :action="'{{ route('footer-update', '') }}/' + footerId" method="POST" enctype="multipart/form-data">
                 @csrf
                 <div class="mb-6">
-                    <label for="nameFooter" class="pb-3">Nama Footer</label>
-                    <input type="text" id="nameFooter" name="name" :value="editFooter?.name" class="px-4 mt-3 rounded-lg py-2 border border-line w-full focus:outline-spotSubtle">
+                    <label for="editNamefooter" class="pb-3">Nama Footer</label>
+                    <input type="text" name="name" id="editNamefooter" class="px-4 mt-3 rounded-lg py-2 border border-line w-full focus:outline-spotSubtle">
                 </div>
                 <div class="mb-6 flex gap-2 items-center">
                     <div>
@@ -117,43 +119,20 @@
                     </div>
                 </div>
                 <div class="mb-6 flex gap-2 items-center">
-                    <input type="checkbox" name="default" id="defaultFooter" :checked="editFooter?.default">
-                    <label for="defaultFooter">Jadikan sebagai default footer</label>
+                    <input type="checkbox" name="default" id="editDefault">
+                    <label for="editDefault">Jadikan sebagai default footer</label>
                 </div>
                 <div>
-                    <label for="templateFooter">Template Footer</label>
-                    <input type="file" name="templateFooter" id="templateFooter" class="dropify dropFooter">
+                    <label for="editTemplateFooter">Template Footer</label>
+                    <input type="file" name="templateFooter" class="dropFooter" id="editTemplateFooter">
                 </div>
-                <div class="flex justify-center mt-6">
-                    <button class="px-4 py-2 rounded-lg bg-primary w-full text-white font-semibold">Update Footer</button>
-                </div>
+                <div class="flex justify-center mt-6"><button type="submit" class="px-4 py-2 rounded-lg bg-primary w-full text-white font-semibold">Update Footer</button></div>
             </form>
         </div>
     </div>
 </div>
 {{-- Section Main End  --}}
-
-{{-- Section Pop Up Start  --}}
-<!-- <div x-show="popOpenDelete">
-                <div x-show="popOpenDelete" x-transition>
-
-                    <div class="absolute top-0 left-0 right-0 bottom-0 inset-0 bg-gray-500 opacity-75"></div>
-                </div>
-                <div x-show="popOpenDelete" x-transition.origin.bottom.duration.700ms class="bg-white absolute top-[200px] border border-line rounded-xl left-[350px] p-6 drop-shadow-md w-[300px] flex flex-col gap-3">
-                    <div class="flex flex-col gap-6 justify-center items-center">
-                        <div><i class="far fa-circle-xmark text-6xl text-primary"></i></div>
-                        <div class="text-center">
-                            <h3 class="text-2xl font-bold">Berhasil dihapus</h3>
-                            <p class="text-sm opacity-50">Penerima Berhasil dihapus</p>
-                        </div>
-                        <div><button @click="popOpenDelete= false" type="button" class="w-40 px-3 py-2 bg-primary rounded-xl text-white font-semibold">Oke</button>
-                        </div>
-                    </div>
-                </div>
-            </div> -->
-{{-- Section Pop Up End  --}}
 @endsection
-
 
 @push('style')
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Dropify/0.2.2/css/dropify.min.css" integrity="sha512-EZSUkJWTjzDlspOoPSpUFR0o0Xy7jdzW//6qhUkoZ9c4StFkVsp9fbbd0O06p9ELS3H486m4wmrCELjza4JEog==" crossorigin="anonymous" referrerpolicy="no-referrer" />

@@ -70,11 +70,9 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('/account-profile', [AdminController::class, 'profil'])->name('admin.profil');
     Route::post('/profile/update', [AdminController::class, 'updatedProfil'])->name('profile.update');
 
-
     Route::get('/internLetter/{id}', [AdminController::class, 'internLetter'])->name('surat.internship');
     Route::post('/intern-form', [OutgoingLetterController::class, 'store'])->name('form.store');
     Route::delete('internLetter/{id}', [OutgoingLetterController::class, 'destroy'])->name('internLetter.destroy');
-
 
     Route::get('/change-password', [AdminController::class, 'change'])->name('admin.change');
     Route::post('/change-password-post', [AdminController::class, 'changePassword'])->name('change.password');

@@ -100,7 +100,6 @@
             </div>
             <form :action="'{{ route('header-update', '') }}/' + headerId" method="POST" enctype="multipart/form-data">
                 @csrf
-                @method('PUT')
                 <div class="mb-6">
                     <label for="editNameHeader" class="pb-3">Nama Header</label>
                     <input type="text" name="name" id="editNameHeader" class="px-4 mt-3 rounded-lg py-2 border border-line w-full focus:outline-spotSubtle">
@@ -133,29 +132,6 @@
     </div>
 </div>
 {{-- Section Main End  --}}
-
-{{-- Section Pop Up  --}}
-<!-- <div x-show="popOpenDelete"  >
-    <div x-show="popOpenDelete"  x-transition>
-       
-        <div class="absolute top-0 left-0 right-0 bottom-0 inset-0 bg-gray-500 opacity-75"></div>
-    </div>
-    <div x-show="popOpenDelete" x-transition.origin.bottom.duration.700ms
-        class="bg-white absolute top-[200px] border border-line rounded-xl left-[350px] p-6 drop-shadow-md w-[300px] flex flex-col gap-3">
-        <div class="flex flex-col gap-6 justify-center items-center">
-            <div><i class="far fa-circle-xmark text-6xl text-primary"></i></div>
-            <div class="text-center">
-                <h3 class="text-2xl font-bold">Berhasil dihapus</h3>
-                <p class="text-sm opacity-50">Penerima Berhasil dihapus</p>
-            </div>
-            <div><button @click="popOpenDelete= false" type="button"
-                    class="w-40 px-3 py-2 bg-primary rounded-xl text-white font-semibold">Oke</button>
-            </div>
-        </div>
-    </div>
-</div> -->
-
-
 @endsection
 
 @push('style')
