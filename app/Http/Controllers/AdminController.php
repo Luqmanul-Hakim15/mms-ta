@@ -95,24 +95,39 @@ class AdminController extends Controller
     {
         $user = Auth::user();
 
-        $extension = $request->file('imageProfile')->getClientOriginalExtension();
+        if ($request->hasFile('imageProfile')) {
+            $extension = $request->file('imageProfile')->getClientOriginalExtension();
 
-        $date = Carbon::now()->format('Y-m-d');
-        $filenameImage = $request->file('imageProfile')->getClientOriginalName();
-        $fileName = $date . '-' . $filenameImage . '.' . $extension;
+            $date = Carbon::now()->format('Y-m-d');
+            $filenameImage = $request->file('imageProfile')->getClientOriginalName();
+            $fileName = $date . '-' . pathinfo($filenameImage, PATHINFO_FILENAME) . '.' . $extension;
 
-        $request->file('imageProfile')->move(public_path('images/profile'), $fileName);
+            $request->file('imageProfile')->move(public_path('images/profile'), $fileName);
 
-        $user->firstname = $request->input('firstname');
-        $user->lastname = $request->input('lastname');
-        $user->username = $request->input('username');
-        $user->email = $request->input('email');
-        $user->position = $request->input('position');
-        $user->image_profile = 'images/profile/'. $fileName;
+            $user->image_profile = 'images/profile/' . $fileName;
+        }
+
+        // Check each input and update only if not empty
+        if ($request->filled('firstname')) {
+            $user->firstname = $request->input('firstname');
+        }
+        if ($request->filled('lastname')) {
+            $user->lastname = $request->input('lastname');
+        }
+        if ($request->filled('username')) {
+            $user->username = $request->input('username');
+        }
+        if ($request->filled('email')) {
+            $user->email = $request->input('email');
+        }
+        if ($request->filled('position')) {
+            $user->position = $request->input('position');
+        }
 
         $user->save();
+        session()->flash('success', 'Profil berhasil diperbarui!');
 
-        return redirect()->back()->with('success', 'Profil berhasil diperbarui!');
+        return redirect()->back();
     }
     public function change()
     {
@@ -129,14 +144,15 @@ class AdminController extends Controller
                     $fail('Password lama tidak sesuai.');
                 }
             }],
-            'newPassword' => ['required', 'min:8'], // Sesuaikan dengan persyaratan password baru Anda
+            'newPassword' => ['required', 'min:8'],
         ]);
 
-        // Jika validasi berhasil, maka update password baru
         $user->password = Hash::make($request->input('newPassword'));
         $user->save();
 
-        return redirect()->back()->with('success', 'Password berhasil diperbarui!');
+        session()->flash('success', 'Password berhasil diperbarui!');
+
+        return redirect()->back();
     }
     public function user()
     {

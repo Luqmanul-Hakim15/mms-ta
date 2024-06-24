@@ -4,8 +4,13 @@
     <x-header>Tambah Pengguna Baru</x-header>
     <div class="ganti-password">
         <div>
-            
             <div class="pb-10">
+                @if(session('success'))
+                    <x-toast-alert :type="'success'" :message="session('success')" />
+                @endif
+                @if($errors->any())
+                    <x-toast-alert :type="'error'" :message="$errors->first()" />
+                @endif
                 <form action="" action="">
                     @csrf
                     <div class="mb-6 flex gap-6">

@@ -21,6 +21,9 @@ class AuthController extends Controller
         ];
 
         if (Auth::attempt($data)) {
+            session()->flash('message', 'Login berhasil!');
+            session()->flash('type', 'success');
+
             return redirect()->route('surat-masuk');
         } else {
             return redirect()->route('login')->with('message', 'Email atau password salah')->with('type','error');
@@ -51,6 +54,9 @@ class AuthController extends Controller
         Auth::logout();
         session()->invalidate();
         session()->regenerateToken();
+
+        session()->flash('message', 'Logout berhasil!');
+        session()->flash('type', 'success');
 
         return redirect('/login');
     }
