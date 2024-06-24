@@ -5,8 +5,6 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\InternshipLetter;
 use Illuminate\Support\Facades\Auth;
-use Dompdf\Dompdf;
-use Illuminate\Support\Facades\View;
 
 class OutgoingLetterController extends Controller
 {
@@ -14,22 +12,22 @@ class OutgoingLetterController extends Controller
     {
         $request->validate([
             'nomorSurat' => 'required|string|max:255|unique:internship_letters,reference_number',
-            // 'namaPihakPertama' => 'required|string|max:255',
-            // 'namaPihakKedua' => 'required|string|max:255',
-            // 'Nik' => 'required|string|max:16',
-            // 'alamat' => 'required|string',
-            // 'kelamin' => 'required|string',
-            // 'tempatDibuat' => 'required|string',
-            // 'tanggalDibuat' => 'required',
-            // 'posisiKerja' => 'required',
-            // 'Penempatan' => 'required',
-            // 'pembayaran' => 'nullable',
-            // 'uangMakan' => 'nullable',
-            // 'uangTransportasi' => 'nullable',
-            // 'dibayarDalam' => 'required',
-            // 'tanggalDimulai' => 'required',
-            // 'tanggalBerakhir' => 'required',
-            // 'penerima' => 'required|integer|exists:verificators,id'
+            'namaPihakPertama' => 'required|string|max:255',
+            'namaPihakKedua' => 'required|string|max:255',
+            'Nik' => 'required|string|max:16',
+            'alamat' => 'required|string',
+            'kelamin' => 'required|string',
+            'tempatDibuat' => 'required|string',
+            'tanggalDibuat' => 'required',
+            'posisiKerja' => 'required',
+            'Penempatan' => 'required',
+            'pembayaran' => 'nullable',
+            'uangMakan' => 'nullable',
+            'uangTransportasi' => 'nullable',
+            'dibayarDalam' => 'required',
+            'tanggalDimulai' => 'required',
+            'tanggalBerakhir' => 'required',
+            'penerima' => 'required|integer|exists:verificators,id'
         ]);
 
         $data = [
@@ -43,7 +41,7 @@ class OutgoingLetterController extends Controller
             'location_from' => $request->input('tempatDibuat'),
             'intern_position' => $request->input('Penempatan'),
             'address' => $request->input('alamat'),
-            'paid' => $request->input('pembayaran', false),
+            'paid' => $request->has('pembayaran') ? 1 : 0,
             'meal_allowance' => $request->input('uangMakan', 0),
             'transport_allowance' => $request->input('uangTransportasi', 0),
             'payment_time' => $request->input('dibayarDalam'),
@@ -53,7 +51,7 @@ class OutgoingLetterController extends Controller
 
         $internshipLetter = InternshipLetter::create($data);
 
-        return redirect()->route('surat.internship', ['id' => $internshipLetter->id])->with('success', 'Internship letter created successfully.');
+        return redirect()->route('surat.internship', ['id' => $internshipLetter->id])->with('success', 'Pembuatan Surat Magang berhasil.');
     }
 
     public function show($id)

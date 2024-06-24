@@ -2,6 +2,15 @@
 
 @section('content')
 <x-header>Surat Masuk</x-header>
+@if(session('success'))
+    <x-toast-alert type="success" message="{{ session('success') }}" />
+@endif
+
+@if ($errors->any())
+    @foreach ($errors->all() as $error)
+        <x-toast-alert type="error" message="{{ $error }}" />
+    @endforeach
+@endif
 <div class="flex justify-between mb-10">
     <a href="{{ route('addmail') }}" class="px-4 py-2 bg-primary rounded-xl flex justify-center items-center text-white font-medium">Tambah
         Surat Masuk</a>

@@ -3,6 +3,11 @@
 
 @section('content')
 <div class="penerima pt-6">
+    @if ($errors->any())
+        @foreach ($errors->all() as $error)
+            <x-toast-alert type="error" message="{{ $error }}" />
+        @endforeach
+    @endif
     <div class="px-6 py-6 ">
         <div class="flex items-center mb-20 w-[400px] mx-auto justify-center">
             <div class="flex items-center text-white relative">
